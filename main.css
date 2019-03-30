@@ -1,3 +1,76 @@
+
+.navbar {
+    background-color: black;
+    font: white;
+}
+
+#brand-image {
+    height: 140px;
+    width: 210px; 
+}
+
+.navbar-nav {
+    font: white!important;
+    justify-content: flex-end;
+}
+
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5em;
+    background-color: tan;
+}
+
+img {
+    width: 40%;
+    height: 70%;
+}
+.carousel {
+    width: 30%;
+    height: 30%;
+}
+
+.treslinks {
+    background-color: tan;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    padding-left: 15rem;
+}
+
+
+.page-footer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 2em;
+    min-height: auto;
+}
+
+.email {
+    padding: 2rem;
+}
+
+.twitter {
+    padding: 2rem;
+}
+
+.instagram {
+    padding: 2rem;
+}
+
+.facebook {
+    padding: 2rem;
+}
+
 body {
     background-color: lightblue;
 }
