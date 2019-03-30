@@ -1,3 +1,4 @@
+
 .navbar {
     background-color: black;
     font: white;
@@ -70,3 +71,12 @@ img {
     padding: 2rem;
 }
 
+body {
+    background-color: lightblue;
+}
+.beerCard {
+    border: 1px solid black;
+}
+.beerImage {
+    width: 100%;
+}
