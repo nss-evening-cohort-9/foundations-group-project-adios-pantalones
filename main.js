@@ -51,23 +51,40 @@ const filterFormRevealBtn = document.getElementById("filterFormRevealBtn");
 const filterBeerBtn = document.getElementById("filterBtn");
 const filterForm = document.getElementById("filterForm");
 
-const brewCardBuilder = (arrayOfBrews) => {
+const brewCardBuilder = (arrayOfBrews, checkboxValue) => {
     let domString = '';
     arrayOfBrews.forEach((beer) => {
-        domString += `<div class="beerCard col-4">`;
-        domString +=    `<h1 class="beerName">${beer.name}</h1>`;
-        domString +=    `<div class="beerDescription">`;
-        domString +=        `<img class="beerImage" src=${beer.imgURL}>`;
-        domString +=        `<p class="beerType">Type: ${beer.type}</p>`;
-        domString +=        `<p class="beerABV">ABV: ${beer.abv}%</p>`;
-        domString +=        `<p class="beerIBU">IBU: ${beer.ibu}</p>`;
-        domString +=        `<p> Tasting Notes: `;
-        beer.tastingNotes.forEach((notes) => {
-        domString +=        `${notes} `;
-        })
-        domString +=        `</p>`;
-        domString +=    `</div>`;
-        domString += `</div>`; 
+        if(checkboxValue.length === 0){
+            domString += `<div class="beerCard col-4">`;
+            domString +=    `<h1 class="beerName">${beer.name}</h1>`;
+            domString +=    `<div class="beerDescription">`;
+            domString +=        `<img class="beerImage" src=${beer.imgURL}>`;
+            domString +=        `<p class="beerType">Type: ${beer.type}</p>`;
+            domString +=        `<p class="beerABV">ABV: ${beer.abv}%</p>`;
+            domString +=        `<p class="beerIBU">IBU: ${beer.ibu}</p>`;
+            domString +=        `<p> Tasting Notes: `;
+            beer.tastingNotes.forEach((notes) => {
+            domString +=        `${notes} `;
+            })
+            domString +=        `</p>`;
+            domString +=    `</div>`;
+            domString += `</div>`; 
+        } else if (checkboxValue.includes(beer.type)){
+            domString += `<div class="beerCard col-4">`;
+            domString +=    `<h1 class="beerName">${beer.name}</h1>`;
+            domString +=    `<div class="beerDescription">`;
+            domString +=        `<img class="beerImage" src=${beer.imgURL}>`;
+            domString +=        `<p class="beerType">Type: ${beer.type}</p>`;
+            domString +=        `<p class="beerABV">ABV: ${beer.abv}%</p>`;
+            domString +=        `<p class="beerIBU">IBU: ${beer.ibu}</p>`;
+            domString +=        `<p> Tasting Notes: `;
+            beer.tastingNotes.forEach((notes) => {
+            domString +=        `${notes} `;
+            })
+            domString +=        `</p>`;
+            domString +=    `</div>`;
+            domString += `</div>`; 
+        }
     });
     printToDom("brewDiv", domString);
 };
@@ -79,7 +96,7 @@ function checkboxFilter(){
         if(items[i].type=='checkbox' && items[i].checked==true)
             selectedItems.push(items[i].value);
     }
-    cardBuilder(selectedItems);
+    brewCardBuilder(brews, selectedItems);
 }
 
 const revealForm = () => {
@@ -87,18 +104,20 @@ const revealForm = () => {
     filterFormRevealBtn.style.display = 'none';
 };
 
+
 const printToDom = (divId, textToPrint) => {
     let selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
 };
 
 const eventListeners = () => {
-    filterFormRevealBtn.addEventListener('click', revealForm)
+    filterFormRevealBtn.addEventListener('click', revealForm);
+    filterBeerBtn.addEventListener('click', checkboxFilter);
 };
 
 
 const init = () => {
-    brewCardBuilder(brews);
+    brewCardBuilder(brews, []);
     eventListeners();
 }
 
