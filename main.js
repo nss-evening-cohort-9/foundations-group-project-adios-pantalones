@@ -47,6 +47,9 @@ const brews = [
         tastingNotes: ['Heavy', 'Malty', 'Caramely'],
     },
 ];
+const filterFormRevealBtn = document.getElementById("filterFormRevealBtn");
+const filterBeerBtn = document.getElementById("filterBtn");
+const filterForm = document.getElementById("filterForm");
 
 const brewCardBuilder = (arrayOfBrews) => {
     let domString = '';
@@ -67,16 +70,36 @@ const brewCardBuilder = (arrayOfBrews) => {
         domString += `</div>`; 
     });
     printToDom("brewDiv", domString);
+};
+
+function checkboxFilter(){
+    let selectedItems= [];
+    let items=document.getElementsByName('beer');
+    for(let i=0; i<items.length; i++){
+        if(items[i].type=='checkbox' && items[i].checked==true)
+            selectedItems.push(items[i].value);
+    }
+    cardBuilder(selectedItems);
 }
 
+const revealForm = () => {
+    filterForm.style.display = 'block';
+    filterFormRevealBtn.style.display = 'none';
+};
 
 const printToDom = (divId, textToPrint) => {
     let selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
 };
 
+const eventListeners = () => {
+    filterFormRevealBtn.addEventListener('click', revealForm)
+};
+
+
 const init = () => {
     brewCardBuilder(brews);
+    eventListeners();
 }
 
 init();
