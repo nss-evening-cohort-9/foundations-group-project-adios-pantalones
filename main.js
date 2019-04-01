@@ -70,13 +70,64 @@ const brewCardBuilder = (arrayOfBrews) => {
 }
 
 
+
+
 const printToDom = (divId, textToPrint) => {
     let selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
 };
 
+
+
+// Home Page Stuff //
+const pages = [
+    {
+        title: 'Beers',
+        imgURL: './assets/',
+        description: 'To view our wide selection of brews',
+        linkURL: '<a class="nav-link" href="./brews.html">Beers</a>'
+    },
+
+    {
+        title: 'Beers',
+        imgURL: './assets/',
+        description: 'To view our wide selection of brews',
+        linkURL: '<a class="nav-link" href="./brews.html">Beers</a>'
+    },
+
+    {
+        title: 'Brewmasters',
+        imgURL: './assets/',
+        description: 'To meet our Brewmasters',
+        linkURL: '<a class="nav-link" href="./brews.html">Beers</a>'
+    },
+
+    {
+        title: 'About Us',
+        imgURL: './assets/',
+        description: 'To hear the story of Adios Los Pantalones',
+        linkURL: '<a class="nav-link" href="./brews.html">Beers</a>'
+    }
+]
+
+const siteBuilder = (arrayOfSites) => {
+    let domString = '';
+    arrayOfSites.forEach((site) => {
+        domString += `<div class="site col-4">`;
+        domString +=    `<h1 class="siteName">${site.title}</h1>`;
+        domString +=    `<div class="siteDescription">`;
+        domString +=        `${site.linkURL}`;
+        domString +=        `<img class="beerImage" src=${site.imgURL}>`;
+        domString +=        `<p class="beerType">Type: ${site.description}</p>`;
+        domString +=    `</div>`;
+        domString += `</div>`; 
+    });
+    printToDom("sitesDiv", domString);
+}
+
 const init = () => {
     brewCardBuilder(brews);
+    arrayOfSites(pages)
 }
 
 init();

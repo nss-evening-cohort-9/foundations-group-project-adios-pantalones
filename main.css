@@ -1,3 +1,6 @@
+body {
+    background-color: lightblue;
+}
 
 .navbar {
     background-color: black;
@@ -36,18 +39,6 @@ img {
     height: 30%;
 }
 
-.treslinks {
-    background-color: tan;
-    display: flex;
-    flex-direction: row;
-    /* flex-wrap: wrap; */
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    padding-left: 15rem;
-}
-
-
 .page-footer {
     display: flex;
     justify-content: center;
@@ -72,12 +63,15 @@ img {
     padding: 2rem;
 }
 
-body {
-    background-color: lightblue;
-}
 .beerCard {
     border: 1px solid black;
 }
 .beerImage {
     width: 100%;
+}
+
+#sitesDiv {
+    display: flex;
+    justify-content: center;
+    margin-left: 10rem;
 }
