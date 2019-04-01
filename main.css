@@ -5,8 +5,8 @@
 }
 
 #brand-image {
-    height: 140px;
-    width: 210px; 
+    height: 70px;
+    width: 80px; 
 }
 
 .navbar-nav {
@@ -23,7 +23,8 @@
     display: flex;
     justify-content: center;
     padding-bottom: 5em;
-    background-color: tan;
+    background-color: lightblue;
+    margin-top: 2rem;
 }
 
 img {
