@@ -1,3 +1,6 @@
+body {
+    background-color: lightblue;
+}
 
 .navbar {
     background-color: black;
@@ -5,8 +8,8 @@
 }
 
 #brand-image {
-    height: 140px;
-    width: 210px; 
+    height: 70px;
+    width: 80px; 
 }
 
 .navbar-nav {
@@ -23,52 +26,43 @@
     display: flex;
     justify-content: center;
     padding-bottom: 5em;
-    background-color: tan;
+    background-color: lightblue;
+    margin-top: 2rem;
 }
 
-/* img {
-    width: 40%;
-    height: 70%;
-} */
 .carousel {
-    width: 30%;
+    width: 70%;
     height: 30%;
 }
 
-.treslinks {
-    background-color: tan;
+.footerNavbar {
     display: flex;
-    flex-direction: row;
-    /* flex-wrap: wrap; */
-    height: 100%;
-    width: 100%;
     justify-content: center;
-    padding-left: 15rem;
+    align-content: flex-start;
+    margin-bottom: 2rem;
 }
-
 
 .page-footer {
     display: flex;
     justify-content: center;
     align-content: center;
-    margin: 2em;
-    min-height: auto;
 }
 
 .email {
-    padding: 2rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
 }
 
 .twitter {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .instagram {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .facebook {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 body {
@@ -83,6 +77,7 @@ html {
 #filterForm {
     display: none;
 }
+
 .beerCard {
     border: 1px solid black;
 }
@@ -90,6 +85,11 @@ html {
 .beerImage {
     width: 100%;
 }
+
+#sitesDiv {
+    display: flex;
+    justify-content: center;
+    margin-left: 10rem;
 
 #title-header, .title-center {
     color: white;
@@ -108,4 +108,5 @@ html {
 
 .card {
     margin-bottom: 50px;
+
 }
