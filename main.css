@@ -32,35 +32,41 @@ body {
 
 img {
     width: 40%;
-    height: 70%;
+    height:60%;
 }
 .carousel {
-    width: 30%;
+    width: 70%;
     height: 30%;
+}
+
+.footerNavbar {
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    margin-bottom: 2rem;
 }
 
 .page-footer {
     display: flex;
     justify-content: center;
     align-content: center;
-    margin: 2em;
-    min-height: auto;
 }
 
 .email {
-    padding: 2rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
 }
 
 .twitter {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .instagram {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .facebook {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .beerCard {

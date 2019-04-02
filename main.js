@@ -83,51 +83,53 @@ const printToDom = (divId, textToPrint) => {
 const pages = [
     {
         title: 'Beers',
-        imgURL: './assets/',
+        imgURL: './assets/beerlink1.jpg',
         description: 'To view our wide selection of brews',
-        linkURL: '<a class="nav-link" href="./brews.html">Beers</a>'
-    },
-
-    {
-        title: 'Beers',
-        imgURL: './assets/',
-        description: 'To view our wide selection of brews',
-        linkURL: '<a class="nav-link" href="./brews.html">Beers</a>'
+        linkURL: './brews.html'
     },
 
     {
         title: 'Brewmasters',
-        imgURL: './assets/',
+        imgURL: './assets/beerlink2.jpg',
         description: 'To meet our Brewmasters',
-        linkURL: '<a class="nav-link" href="./brews.html">Beers</a>'
+        linkURL: './brews.html'
     },
 
     {
         title: 'About Us',
-        imgURL: './assets/',
-        description: 'To hear the story of Adios Los Pantalones',
-        linkURL: '<a class="nav-link" href="./brews.html">Beers</a>'
+        imgURL: './assets/beerlink3.jpg',
+        description: 'To hear the story of <br>Adios Los Pantalones',
+        linkURL: './brews.html'
     }
 ]
 
-const siteBuilder = (arrayOfSites) => {
+const siteBuilder = (pages) => {
     let domString = '';
-    arrayOfSites.forEach((site) => {
+    for(let i = 0; i < pages.length; i++) {
         domString += `<div class="site col-4">`;
-        domString +=    `<h1 class="siteName">${site.title}</h1>`;
+        domString +=    `<h1 class="siteName">${pages[i].title}</h1>`;
         domString +=    `<div class="siteDescription">`;
-        domString +=        `${site.linkURL}`;
-        domString +=        `<img class="beerImage" src=${site.imgURL}>`;
-        domString +=        `<p class="beerType">Type: ${site.description}</p>`;
+        domString +=        `<a class="nav-link" href=${pages[i].linkURL}><img class="pageImage" src=${pages[i].imgURL}></a>`;
+        domString +=        `<p class="pageDescription">${pages[i].description}</p>`;
         domString +=    `</div>`;
         domString += `</div>`; 
-    });
+    };
     printToDom("sitesDiv", domString);
 }
 
-const init = () => {
-    brewCardBuilder(brews);
-    arrayOfSites(pages)
-}
 
-init();
+const init = () => {
+    if(window.location.pathname === `/brews.html`) {
+        brewCardBuilder(brews, []);
+        brewsEventListeners();
+    } else if (window.location.pathname === `/brewmaster.html`) {
+        brewMasterCards(wrestlers);
+    } else if (window.location.pathname === `/index.html`) {
+        siteBuilder(pages);
+    } else if (window.location.pathname === `/aboutus.html`) {
+ 
+    }
+ 
+ }
+
+ init();
