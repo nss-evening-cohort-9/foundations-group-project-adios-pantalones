@@ -92,14 +92,14 @@ const pages = [
         title: 'Brewmasters',
         imgURL: './assets/beerlink2.jpg',
         description: 'To meet our Brewmasters',
-        linkURL: './brews.html'
+        linkURL: './brewmasters.html'
     },
 
     {
         title: 'About Us',
         imgURL: './assets/beerlink3.jpg',
         description: 'To hear the story of <br>Adios Los Pantalones',
-        linkURL: './brews.html'
+        linkURL: './aboutus.html'
     }
 ]
 
