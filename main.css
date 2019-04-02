@@ -30,10 +30,6 @@ body {
     margin-top: 2rem;
 }
 
-img {
-    width: 40%;
-    height:60%;
-}
 .carousel {
     width: 70%;
     height: 30%;
@@ -70,8 +66,14 @@ img {
 }
 
 body {
-    background-color: lightblue;
+    /* background-color: lightblue; */
+    background-image:url('https://images.unsplash.com/photo-1518176258769-f227c798150e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
 }
+
+html {
+    margin: 0;
+}
+
 #filterForm {
     display: none;
 }
@@ -79,6 +81,7 @@ body {
 .beerCard {
     border: 1px solid black;
 }
+
 .beerImage {
     width: 100%;
 }
@@ -87,4 +90,23 @@ body {
     display: flex;
     justify-content: center;
     margin-left: 10rem;
+
+#title-header, .title-center {
+    color: white;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 35vw;
+    object-fit: cover;
+}
+
+.card-footer {
+    padding: 0;
+    margin: 0;
+}
+
+.card {
+    margin-bottom: 50px;
+
 }
