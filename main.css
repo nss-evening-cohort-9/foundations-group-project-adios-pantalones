@@ -69,6 +69,13 @@ img {
     padding: 1rem;
 }
 
+body {
+    background-color: lightblue;
+}
+#filterForm {
+    display: none;
+}
+
 .beerCard {
     border: 1px solid black;
 }

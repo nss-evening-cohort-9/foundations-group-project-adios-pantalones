@@ -4,21 +4,21 @@
 
 const brews = [
     {
-        name: 'Sting IPA',
+        name: 'Stinger Splash IPA',
         imgURL: './assets/Beer1.jpg',
         type: 'Ale',
         abv: '9.4',
         ibu: '88',
         tastingNotes: ['Citrusy', 'Hoppy', 'Crisp'],
     },{
-        name: 'Macho Man Natural',
+        name: 'OH YEAH Ale',
         imgURL: './assets/Beer2.jpg',
         type: 'Ale',
         abv: '6.6',
         ibu: '25',
         tastingNotes: ['Hazy', 'Leathery'],
     },{
-        name: 'Stone Cold Light',
+        name: 'Stunner Light',
         imgURL: './assets/Beer3.jpg',
         type: 'Lager',
         abv: '2',
@@ -39,7 +39,7 @@ const brews = [
         ibu: '35',
         tastingNotes: ['Crisp', 'Light', 'Buttery'],
     },{
-        name: 'Ultimate Warrior Stout',
+        name: 'The Ultimate Stout',
         imgURL: './assets/Beer6.jpg',
         type: 'Ale',
         abv: '5.9',
@@ -47,27 +47,62 @@ const brews = [
         tastingNotes: ['Heavy', 'Malty', 'Caramely'],
     },
 ];
+const filterFormRevealBtn = document.getElementById("filterFormRevealBtn");
+const filterBeerBtn = document.getElementById("filterBtn");
+const filterForm = document.getElementById("filterForm");
 
-const brewCardBuilder = (arrayOfBrews) => {
+const brewCardBuilder = (arrayOfBrews, checkboxValue) => {
     let domString = '';
     arrayOfBrews.forEach((beer) => {
-        domString += `<div class="beerCard col-4">`;
-        domString +=    `<h1 class="beerName">${beer.name}</h1>`;
-        domString +=    `<div class="beerDescription">`;
-        domString +=        `<img class="beerImage" src=${beer.imgURL}>`;
-        domString +=        `<p class="beerType">Type: ${beer.type}</p>`;
-        domString +=        `<p class="beerABV">ABV: ${beer.abv}%</p>`;
-        domString +=        `<p class="beerIBU">IBU: ${beer.ibu}</p>`;
-        domString +=        `<p> Tasting Notes: `;
-        beer.tastingNotes.forEach((notes) => {
-        domString +=        `${notes} `;
-        })
-        domString +=        `</p>`;
-        domString +=    `</div>`;
-        domString += `</div>`; 
+        if(checkboxValue.length === 0){
+            domString += `<div class="beerCard col-4">`;
+            domString +=    `<h1 class="beerName">${beer.name}</h1>`;
+            domString +=    `<div class="beerDescription">`;
+            domString +=        `<img class="beerImage" src=${beer.imgURL}>`;
+            domString +=        `<p class="beerType">Type: ${beer.type}</p>`;
+            domString +=        `<p class="beerABV">ABV: ${beer.abv}%</p>`;
+            domString +=        `<p class="beerIBU">IBU: ${beer.ibu}</p>`;
+            domString +=        `<p> Tasting Notes: `;
+            beer.tastingNotes.forEach((notes) => {
+            domString +=        `${notes} `;
+            })
+            domString +=        `</p>`;
+            domString +=    `</div>`;
+            domString += `</div>`; 
+        } else if (checkboxValue.includes(beer.type)){
+            domString += `<div class="beerCard col-4">`;
+            domString +=    `<h1 class="beerName">${beer.name}</h1>`;
+            domString +=    `<div class="beerDescription">`;
+            domString +=        `<img class="beerImage" src=${beer.imgURL}>`;
+            domString +=        `<p class="beerType">Type: ${beer.type}</p>`;
+            domString +=        `<p class="beerABV">ABV: ${beer.abv}%</p>`;
+            domString +=        `<p class="beerIBU">IBU: ${beer.ibu}</p>`;
+            domString +=        `<p> Tasting Notes: `;
+            beer.tastingNotes.forEach((notes) => {
+            domString +=        `${notes} `;
+            })
+            domString +=        `</p>`;
+            domString +=    `</div>`;
+            domString += `</div>`; 
+        }
     });
     printToDom("brewDiv", domString);
+};
+
+function checkboxFilter(){
+    let selectedItems= [];
+    let itemsType=document.getElementsByName('beer');
+    for(let i=0; i<itemsType.length; i++){
+        if(itemsType[i].type=='checkbox' && itemsType[i].checked==true)
+            selectedItems.push(itemsType[i].value);
+    }
+    brewCardBuilder(brews, selectedItems);
 }
+
+const revealForm = () => {
+    filterForm.style.display = 'block';
+    filterFormRevealBtn.style.display = 'none';
+};
 
 
 
@@ -77,6 +112,16 @@ const printToDom = (divId, textToPrint) => {
     selectedDiv.innerHTML = textToPrint;
 };
 
+const eventListeners = () => {
+    filterFormRevealBtn.addEventListener('click', revealForm);
+    filterBeerBtn.addEventListener('click', checkboxFilter);
+};
+
+
+const init = () => {
+    brewCardBuilder(brews, []);
+    eventListeners();
+}
 
 
 // Home Page Stuff //
@@ -115,7 +160,6 @@ const siteBuilder = (pages) => {
         domString += `</div>`; 
     };
     printToDom("sitesDiv", domString);
-}
 
 
 const init = () => {
