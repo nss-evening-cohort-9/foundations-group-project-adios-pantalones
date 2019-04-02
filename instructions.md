@@ -70,7 +70,7 @@ Your team MUST use github projects to track tickets and progress on tickets.  We
 
 ### Twists
 Your project must include each of the following:
-* **Complex Data** - At lease 1 of your pages should use a more complex data structure.  This means that one of your arrays should have an array inside each object.  For examle:  Each of your beers could have an array called ingredients that has beer ingredients in it.  You then would have to figure out how to display all the ingredients in the domString
+* **Complex Data** - At lease 1 of your pages should use a more complex data structure.  This means that one of your arrays should have an array inside each object.  For example:  Each of your beers could have an array called ingredients that has beer ingredients in it.  You then would have to figure out how to display all the ingredients in the domString
 * **Dynamic Buttons** - somewhere in your project there should be some dynamically created buttons - clicking each button should perform some sort of action
 * **Form** - Your project should have at least 1 form.  Submitting that form via a button click should do something.
 
