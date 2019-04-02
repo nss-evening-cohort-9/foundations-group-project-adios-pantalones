@@ -1,3 +1,48 @@
 body {
     background-color: lightblue;
 }
+
+.mr-3 {
+    width: 64px;
+    height: 64px;
+}
+
+.nun-img {
+    float:left;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    padding: 2px;
+}
+.beer-img {
+    float:right;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    padding: 2px;
+}
+
+#form1 {
+    padding: 10px;
+    border: 1px solid #000;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+   
+.media {
+    border: 1px solid grey;
+    width: 80%;
+    margin: auto;
+    background-color: white;
+}
+.form input[type="text"],.form textarea, .form input[type="date"]{
+    border:1px solid #000;
+    padding:2px;
+    width:300px;
+}
