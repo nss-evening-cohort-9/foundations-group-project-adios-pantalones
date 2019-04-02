@@ -189,9 +189,6 @@ const revealForm = () => {
     filterFormRevealBtn.style.display = 'none';
 };
 
-
-
-
 const printToDom = (divId, textToPrint) => {
     let selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
@@ -201,21 +198,6 @@ const brewsEventListeners = () => {
     filterFormRevealBtn.addEventListener('click', revealForm);
     filterBeerBtn.addEventListener('click', filterBeerFuntion);
 };
-
-
-const init = () => {
-    if(window.location.pathname === `/brews.html`) {
-        brewCardBuilder(brews, []);
-        brewsEventListeners();
-    } else if (window.location.pathname === `/brewmasters.html`) {
-        brewMasterCards(wrestlers);
-    } else if (window.location.pathname === `/index.html`) {
-
-    } else if (window.location.pathname === `/aboutus.html`) {
-
-    }
-};
-
 
 // Home Page Stuff //
 const pages = [
@@ -254,12 +236,13 @@ const siteBuilder = (pages) => {
     };
     printToDom("sitesDiv", domString);
 
+};
 
 const init = () => {
     if(window.location.pathname === `/brews.html`) {
         brewCardBuilder(brews, []);
         brewsEventListeners();
-    } else if (window.location.pathname === `/brewmaster.html`) {
+    } else if (window.location.pathname === `/brewmasters.html`) {
         brewMasterCards(wrestlers);
     } else if (window.location.pathname === `/index.html`) {
         siteBuilder(pages);
@@ -267,6 +250,6 @@ const init = () => {
  
     }
  
- }
+ };
 
  init();
