@@ -1,49 +1,72 @@
-<<<<<<< HEAD
+///////////////////////////
+////// BrewMasters ////////
+///////////////////////////
+
 const wrestlers =[
     {
         name: 'Stone Cold Steve Austin',
         imgUrl: './assets/Stone-Cold-Steve-Austin.jpg',
         about: 'Stone Cold Steve Austin makes beer for those who are out there crushing it. It hits heavy and goes down smooth. You may just wanna drink two at a time.',
-        beerOfChoice: 'Steveweisers'
+        beerOfChoice: 'Beer of choice: Steveweisers'
     },
     {
         name: 'Andre The Giant',
         imgUrl: './assets/Andre.jpg',
-        about: 'Stone Cold Steve Austin makes beer for those who are out there crushing it. It hits heavy and goes down smooth. You may just wanna drink two at a time.',
-        beerOfChoice: ''
+        about: "Andre's beer is big in flavor just like him. It sits on you like a giant. This beer is great with hearty home cooked meals.",
+        beerOfChoice: 'Beer of choice: Duff'
     },
     {
         name: 'Macho Man Randy Savage',
         imgUrl: './assets/Macho man.jpg',
-        about: 'Stone Cold Steve Austin makes beer for those who are out there crushing it. It hits heavy and goes down smooth. You may just wanna drink two at a time.',
-        beerOfChoice: ''
+        about: "This beer will leave you saying 'Oh Yeahhh'. Made from only locally sourced ingredients Macho Man's Brew brings the noise.",
+        beerOfChoice: 'Beer of choice: Amped Beers'
     },
     {
         name: 'Sgt Slaughter',
         imgUrl: './assets/Sgt Slghtr.jpg',
-        about: 'Stone Cold Steve Austin makes beer for those who are out there crushing it. It hits heavy and goes down smooth. You may just wanna drink two at a time.',
-        beerOfChoice: ''
+        about: 'Sarges love for brewing started when he home brewed at the barracks at Ft. Benning. His pilsner tastes like America and victory.',
+        beerOfChoice: 'Beer of choice: Colonel Crisp'
     },
     {
         name: 'Sting',
         imgUrl: './assets/Sting.jpg',
         about: "When he's not smashing folks with his baseball bat, Sting is brewing up some of the most delicious IPA's you've ever put on your tastebuds.",
-        beerOfChoice: ''
+        beerOfChoice: 'Beer of choice: Potent Ones'
     },
-    {
-        name: 'Ric Flair',
-        imgUrl: './assets/nature boy.jpg',
-        about: 'Stone Cold Steve Austin makes beer for those who are out there crushing it. It hits heavy and goes down smooth. You may just wanna drink two at a time.',
-        beerOfChoice: ''
-    },
+    // {
+    //     name: 'Ric Flair',
+    //     imgUrl: './assets/nature boy.jpg',
+    //     about: 'Stone Cold Steve Austin makes beer for those who are out there crushing it. It hits heavy and goes down smooth. You may just wanna drink two at a time.',
+    //     beerOfChoice: ''
+    // },
     {
         name: 'Ultimate Warrior',
         imgUrl: './assets/UW.jpg',
-        about: 'Stone Cold Steve Austin makes beer for those who are out there crushing it. It hits heavy and goes down smooth. You may just wanna drink two at a time.',
-        beerOfChoice: ''
+        about: 'Ultimate Warriors attention to flavor profiles is only rivaled by his incredible face paint. A pint of his delish ale will have you breaking out the neon tassles.',
+        beerOfChoice: 'Beer of choice: Wildman Beers'
     }
 ]
-=======
+
+const brewMasterCards = (brews) => {
+    let domString = '';
+
+        domString += `<div class="card-deck">`
+    brews.forEach((drinker) => {
+        domString +=   `<div class="col-md-4 d-flex pb-3">`
+        domString +=   `<div class="card" class="buzzers">`
+        domString +=        `<img src="${drinker.imgUrl}" class="card-img-top" alt="img">`
+        domString +=        `<div class="card-body">`
+        domString +=        `<h5 class="card-title">${drinker.name}</h5>`
+        domString +=        `<p class="card-text">${drinker.about}</p>`
+        domString +=        `<p class="card-footer">`
+        domString +=        `<small class="text-muted">${drinker.beerOfChoice}</small>`
+        domString +=        `</div>`
+        domString +=    `</div>`  
+        domString += `</div>`
+    });
+    printToDom('container', domString);
+}
+
 /////////////////////////////////////
 //////////// BREWS PAGE /////////////
 /////////////////////////////////////
@@ -122,8 +145,11 @@ const printToDom = (divId, textToPrint) => {
 };
 
 const init = () => {
-    brewCardBuilder(brews);
+    if(window.location.pathname === '/brews.html') {
+        brewCardBuilder(brews);
+    } else if (window.location.pathname === '/brewmasters.html') {
+        brewMasterCards(wrestlers);
+    }
 }
 
 init();
->>>>>>> master
