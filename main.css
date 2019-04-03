@@ -73,17 +73,61 @@ html {
     margin: 0;
 }
 
+/*///////////////////////////////////////////////////////////*/
+/*////////////////////////BREWS CSS//////////////////////////*/
+/*///////////////////////////////////////////////////////////*/
+
+#brewPageWrapper {
+    text-align: center;
+}
+#filterFormRevealBtn {
+    margin-bottom: 1em;
+    margin-top: 2em;
+    margin: auto;
+}
+
+#filterBtn, #unfilteredBtn {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
 #filterForm {
+    margin-top: 2em;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
     display: none;
+}
+
+.abvRadioButtons, .typeCheckboxes {
+    text-align: start;
+}
+
+.abvFilterDiv, .typeFilterDiv {
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .beerCard {
     border: 1px solid black;
+    background-color: aliceblue;
+    text-align: center;
+    margin-top: 1em;
 }
 
 .beerImage {
     width: 100%;
 }
+
+#brewEmptyMessage {
+    text-decoration: underline;
+    color: red;
+    margin-top: 1em;
+    width: 80%;
+}
+
+/*////////////////////////////////*/
+/*////////////HOMEPAGE////////////*/
+/*////////////////////////////////*/
 
 #sitesDiv {
     display: flex;
@@ -109,4 +153,35 @@ html {
 .card {
     margin-bottom: 50px;
 
+}
+
+
+/*///////////////////////////////////////*/
+/*/////////// MEDIA QUERIES /////////////*/
+/*///////////////////////////////////////*/
+
+/* medium break on bootstrap */
+@media (min-width: 576px) {
+    /* Homepage */
+
+    /* Brews */
+    #filterForm {
+        border: 3px solid black;
+        width: 50%;
+        margin: auto;
+    }
+
+    /* BrewMasters */
+
+    /* About */
+}
+/* large break on bootstrap */
+@media (min-width: 768px){
+    /* Homepage */
+
+    /* Brews */
+
+    /* BrewMasters */
+
+    /* About */
 }
