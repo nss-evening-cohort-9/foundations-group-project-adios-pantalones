@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <link rel="stylesheet" href="./main.css">
     <title>Brews</title>
 </head>
@@ -34,16 +35,16 @@
     </nav>
     <div id="brewPageWrapper">
         <h1 id="brewPageTitle">CHECK OUT OUR BREWS</h1>
-        <button type="button" id="filterFormRevealBtn" class="btn btn-success">Filter the brews!</button>
+        <button type="button" id="filterFormRevealBtn" class="btn btn-primary">Filter the brews!</button>
         <div id="filterForm">
             <div class="container">
                 <h1>Filter by beer type:</h1>
                 <div class="row typeFilterDiv">
-                    <div class="typeCheckboxes col-4 offset-4 offset-lg-4">
+                    <div class="typeCheckboxes col-4 offset-4 col-lg-3 offset-lg-3">
                         <input id="ale" type="checkbox" name="beer" value="Ale">
                         <label for="ale">Ales</label>
                     </div>
-                    <div class="typeCheckboxes col-4 offset-4 ">
+                    <div class="typeCheckboxes col-4 offset-4 col-lg-3 offset-lg-1">
                         <input id="lager" type="checkbox" name="beer" value="Lager">
                         <label for="lager">Lager</label>
                     </div>
@@ -52,25 +53,25 @@
             <div class="container">
                 <h1>Filter by ABV:</h1>
                 <div class="row abvFilterDiv">
-                    <div class="abvRadioButtons col-5 offset-1">
+                    <div class="abvRadioButtons col-5 col-lg-3 offset-1 offset-lg-3">
                         <input id="allAbv" type="radio" name="abv" value="allAbv" checked>
                         <label for="allAbv">All</label>
                     </div>
-                    <div class="abvRadioButtons col-5">
+                    <div class="abvRadioButtons col-5 col-lg-3 offset-lg-1">
                         <input id="lightweightAbv"type="radio" name="abv" value="light">
                         <label for="lightweightAbv">Lightweight</label>
                     </div>
-                    <div class="abvRadioButtons col-5 offset-1">
+                    <div class="abvRadioButtons col-5 col-lg-3 offset-1 offset-lg-3">
                         <input id="cruiserweightAbv" type="radio" name="abv" value="cruiser">
                         <label for="cruiserweightAbv">Cruiserweight</label>
                     </div>
-                    <div class="abvRadioButtons col-5">
+                    <div class="abvRadioButtons col-5 col-lg-3 offset-lg-1">
                         <input id="heavyweightAbb" type="radio" name="abv" value="heavy">
                         <label for="heavyweightAbv">Heavyweight</label>
                     </div>
                 </div>
             </div>
-            <button type="button" id="filterBtn" class="btn btn-success">Let's get ready to filter!</button>
+            <button type="button" id="filterBtn" class="btn btn-primary">Let's get ready to filter!</button>
             <button type="button" id="unfilteredBtn" class="btn btn-danger">I prefer my beer unfiltered!</button>
         </div>
     

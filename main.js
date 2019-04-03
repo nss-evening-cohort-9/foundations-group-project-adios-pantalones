@@ -75,6 +75,7 @@ const brews = [
     {
         name: 'Stinger Splash IPA',
         imgURL: './assets/Beer1.jpg',
+        tagline: 'It’s Showtime!',
         type: 'Ale',
         abv: '9.4',
         status: 'heavy',
@@ -83,6 +84,7 @@ const brews = [
     }, {
         name: 'OH YEAH Ale',
         imgURL: './assets/Beer2.jpg',
+        tagline: 'Crack into a cold one, OH YEAH!',
         type: 'Ale',
         abv: '6.6',
         status: 'cruiser',
@@ -91,6 +93,7 @@ const brews = [
     }, {
         name: 'Stunner Light',
         imgURL: './assets/Beer3.jpg',
+        tagline: 'At 2%, you gotta drink 2 at a time!',
         type: 'Lager',
         abv: '2',
         status: 'light',
@@ -99,6 +102,7 @@ const brews = [
     }, {
         name: 'Andre Ale',
         imgURL: './assets/Beer4.jpg',
+        tagline: 'Drink six of these to join the Brute Squad!',
         type: 'Ale',
         abv: '12.9',
         status: 'heavy',
@@ -107,6 +111,7 @@ const brews = [
     }, {
         name: 'Sgt Slaughter Pilsner',
         imgURL: '/assets/Beer5.jpg',
+        tagline: 'Drink it! That‘s an order!',
         type: 'Lager',
         abv: '4.5',
         status: 'cruiser',
@@ -115,6 +120,7 @@ const brews = [
     }, {
         name: 'The Ultimate Stout',
         imgURL: './assets/Beer6.jpg',
+        tagline: 'The power of the warrioooooor!!!',
         type: 'Ale',
         abv: '5.9',
         status: 'cruiser',
@@ -127,6 +133,30 @@ const filterBeerBtn = document.getElementById("filterBtn");
 const filterForm = document.getElementById("filterForm");
 const filterRadios = document.getElementsByName("abv");
 const unfilteredBtn = document.getElementById("unfilteredBtn");
+const brewDiv = document.getElementById("brewDiv");
+
+window.smoothScroll = function(target) {
+    let scrollContainer = target;
+    do { //find scroll container
+        scrollContainer = scrollContainer.parentNode;
+        if (!scrollContainer) return;
+        scrollContainer.scrollTop += 1;
+    } while (scrollContainer.scrollTop == 0);
+
+    let targetY = 0;
+    do { //find the top of target relatively to the container
+        if (target == scrollContainer) break;
+        targetY += target.offsetTop;
+    } while (target = target.offsetParent);
+
+    scroll = function(c, a, b, i) {
+        i++; if (i > 30) return;
+        c.scrollTop = a + (b - a) / 30 * i;
+        setTimeout(function(){ scroll(c, a, b, i); }, 20);
+    }
+    // start scrolling
+    scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+};
 
 const brewCardBuilder = (arrayOfBrews, checkboxValue, abvValue) => {
     console.log(abvValue);
@@ -146,12 +176,17 @@ const brewCardBuilder = (arrayOfBrews, checkboxValue, abvValue) => {
             domString += `<div class="col-12 col-md-5 col-lg-4">`;
             domString += `<div class="beerCard card">`;
             domString += `<h1 class="beerName">${beer.name}</h1>`;
-            domString += `<div class="beerDescription">`;
+            domString += `<div class="beerImage">`;
             domString += `<img class="beerImage" src=${beer.imgURL}>`;
-            domString += `<p class="beerType">Type: ${beer.type}</p>`;
-            domString += `<p class="beerABV">ABV: ${beer.abv}%</p>`;
-            domString += `<p class="beerIBU">IBU: ${beer.ibu}</p>`;
-            domString += `<p> Tasting Notes: `;
+            domString += `</div>`;
+            domString += `<p class="card-text"><small>- ${beer.tagline}</small></p>`
+            domString += `<div class="beerDescription row">`;
+            domString += `<p class="beerABV col-4 col-md-5 offset-1 col-lg-4">ABV: ${beer.abv}%</p>`;
+            domString += `<p class="beerType col-3 col-md-6 col-lg-3">${beer.type}</p>`;
+            domString += `<p class="beerIBU col-3 col-md-6 col-lg-4">IBU: ${beer.ibu}</p>`;
+            domString += `</div>`;
+            domString += `<div class="beerTastingNotes row">`;
+            domString += `<p class="col-12"> Tasting Notes: `;
             beer.tastingNotes.forEach((notes) => {
                 domString += `${notes} `;
             })
@@ -203,19 +238,21 @@ const abvFilter = () => {
 const filterBeerFunction = () => {
     let filteredBeerType = checkboxFilter();
     let filteredBeerAbv = abvFilter();
-    brewCardBuilder(brews, filteredBeerType, filteredBeerAbv);
+    brewCardBuilder(brews, filteredBeerType, filteredBeerAbv)
+    smoothScroll(brewDiv);
 };
 
 const unfilteredBeerFunction = () => {
     filterForm.style.display = 'none';
     filterFormRevealBtn.style.display = 'block';
     brewCardBuilder(brews, [], 'allAbv');
-    
+
 
 }
 const revealForm = () => {
     filterForm.style.display = 'block';
     filterFormRevealBtn.style.display = 'none';
+    smoothScroll(filterForm);
 };
 
 const printToDom = (divId, textToPrint) => {
