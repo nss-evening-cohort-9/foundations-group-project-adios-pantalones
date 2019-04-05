@@ -31,15 +31,14 @@ body {
 }
 
 .carousel {
-    width: 70%;
-    height: 30%;
+    width: 60%;
+    height: 15%;
 }
 
 .footerNavbar {
     display: flex;
     justify-content: center;
     align-content: flex-start;
-    margin-bottom: 2rem;
 }
 
 .page-footer {
@@ -63,6 +62,7 @@ body {
 
 .facebook {
     padding: 1rem;
+    margin-right: 2em;
 }
 
 body {
@@ -89,6 +89,7 @@ html {
     display: flex;
     justify-content: center;
     margin-left: 10rem;
+}
 
 #title-header, .title-center {
     color: white;
@@ -108,4 +109,15 @@ html {
 .card {
     margin-bottom: 50px;
 
+}
+
+.address {
+    align-self: flex-start;
+    padding-right: 2em;
+    color: white;
+}
+
+.phone {
+    align-self: flex-start;
+    color: white!important;
 }
