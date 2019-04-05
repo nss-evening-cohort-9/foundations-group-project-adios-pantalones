@@ -186,17 +186,6 @@ const eventListeners = () => {
     filterBeerBtn.addEventListener('click', checkboxFilter);
 };
 
-
-const init = () => {
-    if(window.location.pathname === '/brews.html') {
-    brewCardBuilder(brews, []);
-    eventListeners();
-    } else if (window.location.pathname === '/brewmasters.html') {
-        brewMasterCards(wrestlers);
-    }
-}
-
-
 // Home Page Stuff //
 const pages = [
     {
@@ -223,16 +212,17 @@ const pages = [
 
 const siteBuilder = (pages) => {
     let domString = '';
-    for(let i = 0; i < pages.length; i++) {
+    pages.forEach((page) => {
         domString += `<div class="site col-4">`;
-        domString +=    `<h1 class="siteName">${pages[i].title}</h1>`;
+        domString +=    `<h1 class="siteName">${page.title}</h1>`;
         domString +=    `<div class="siteDescription">`;
-        domString +=        `<a class="nav-link" href=${pages[i].linkURL}><img class="pageImage" src=${pages[i].imgURL}></a>`;
-        domString +=        `<p class="pageDescription">${pages[i].description}</p>`;
+        domString +=        `<a class="nav-link" href=${page.linkURL}><img class="pageImage" src=${page.imgURL}></a>`;
+        domString +=        `<p class="pageDescription">${page.description}</p>`;
         domString +=    `</div>`;
         domString += `</div>`; 
-    };
-    printToDom("sitesDiv", domString);
+    });
+    printToDom("sitesDiv", domString)
+};
 
 
 const init = () => {
