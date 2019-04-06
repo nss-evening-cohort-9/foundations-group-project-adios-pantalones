@@ -323,7 +323,7 @@ const pages = [
     {
         title: 'About Us',
         imgURL: './assets/beerlink3.jpg',
-        description: 'To hear the story of <br>Adios Los Pantalones',
+        description: 'To hear the story of Adios Los Pantalones',
         linkURL: './about.html'
     }
 ]

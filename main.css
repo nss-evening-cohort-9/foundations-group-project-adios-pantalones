@@ -21,9 +21,9 @@ body {
 /*////////////////////////////////*/
 
 #sitesDiv {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
-    margin-left: 10rem;
+    /* margin-left: 10rem; */
 }
 
 #title-header, .title-center {
@@ -56,6 +56,11 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+#brand-image {
+    display:block;
+    margin: auto;
 }
 
 .email {
