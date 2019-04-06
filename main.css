@@ -3,8 +3,8 @@ body {
 }
 
 #brand-image {
-    height: 70px;
-    width: 80px; 
+    height: 170px;
+    width: 180px; 
 }
 
 .navbar-nav {
@@ -20,16 +20,6 @@ body {
 /*////////////HOMEPAGE////////////*/
 /*////////////////////////////////*/
 
-#sitesDiv {
-    /* display: flex; */
-    justify-content: center;
-    /* margin-left: 10rem; */
-}
-
-#title-header, .title-center {
-    color: white;
-}
-
 #main {
     display: flex;
     justify-content: center;
@@ -44,8 +34,17 @@ body {
     height: 15%;
 }
 
+#sitesDiv {
+    width: 95%;
+    margin: auto;
+}
 .site {
+    border: 3px solid #393939;
+    background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
     text-align: center;
+    margin-top: 1em;
+    color: black;
+    box-shadow: 3px 3px 5px grey;
     
 }
 
@@ -59,8 +58,15 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
+    background-color: #393939
 }
 
+.pageImage {
+    display: block;
+    margin:auto;
+    width:100%;
+    
+}
 #brand-image {
     display:block;
     margin: auto;
