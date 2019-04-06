@@ -387,12 +387,11 @@ const init = () => {
         brewsEventListeners();
     } else if (window.location.pathname === `/brewmasters.html`) {
         brewMasterCards(wrestlers);
-    } else if (window.location.pathname === `/index.html`) {
-        siteBuilder(pages);
     } else if (window.location.pathname === `/about.html`) {
         aboutEventListeners();
+    } else {
+        siteBuilder(pages);
     }
-
 };
 
 init();
