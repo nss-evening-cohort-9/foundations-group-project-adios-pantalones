@@ -1,3 +1,36 @@
+// console.log("Suh dude");
+let inputName = document.getElementById("name");
+let inputComment = document.getElementById("bodyText");
+const myButton = document.getElementById("commentButton");
+const commentAvatar = "https://previews.123rf.com/images/lineartestpilot/lineartestpilot1410/lineartestpilot141004547/32623035-cartoon-beer-bottle.jpg"
+
+const messageBuilder = () => {
+     inputName = document.getElementById("name").value;
+     inputComment = document.getElementById("bodyText").value;
+    console.log(inputName);
+    console.log(inputComment);
+
+    let domString = '';
+    domString +=  `<div class="media">`;
+    domString += `<img class="mr-3" src="${commentAvatar}" alt="Generic placeholder image">`;
+    domString +=  `<div class="media-body">`;
+    domString += `<h5 class="mt-0">${inputName}</h5>`;
+    domString +=  `<p>${inputComment}</p>`;
+    domString += `</div>`;
+    printToDom("container", domString); 
+    document.getElementById("name").value = "";
+    document.getElementById("bodyText").value = "";
+};
+
+
+const aboutEventListeners = () => {
+    myButton.addEventListener('click', messageBuilder);
+
+};
+
+
+
+
 ///////////////////////////
 ////// BrewMasters ////////
 ///////////////////////////
@@ -284,30 +317,29 @@ const pages = [
         title: 'Brewmasters',
         imgURL: './assets/beerlink2.jpg',
         description: 'To meet our Brewmasters',
-        linkURL: './brews.html'
+        linkURL: './brewmasters.html'
     },
 
     {
         title: 'About Us',
         imgURL: './assets/beerlink3.jpg',
         description: 'To hear the story of <br>Adios Los Pantalones',
-        linkURL: './brews.html'
+        linkURL: './about.html'
     }
 ]
 
 const siteBuilder = (pages) => {
     let domString = '';
-    for (let i = 0; i < pages.length; i++) {
+    pages.forEach((page) => {
         domString += `<div class="site col-4">`;
-        domString += `<h1 class="siteName">${pages[i].title}</h1>`;
-        domString += `<div class="siteDescription">`;
-        domString += `<a class="nav-link" href=${pages[i].linkURL}><img class="pageImage" src=${pages[i].imgURL}></a>`;
-        domString += `<p class="pageDescription">${pages[i].description}</p>`;
-        domString += `</div>`;
-        domString += `</div>`;
-    };
-    printToDom("sitesDiv", domString);
-
+        domString +=    `<h1 class="siteName">${page.title}</h1>`;
+        domString +=    `<div class="siteDescription">`;
+        domString +=        `<a class="nav-link" href=${page.linkURL}><img class="pageImage" src=${page.imgURL}></a>`;
+        domString +=        `<p class="pageDescription">${page.description}</p>`;
+        domString +=    `</div>`;
+        domString += `</div>`; 
+    });
+    printToDom("sitesDiv", domString)
 };
 
 const init = () => {
@@ -319,7 +351,7 @@ const init = () => {
     } else if (window.location.pathname === `/index.html`) {
         siteBuilder(pages);
     } else if (window.location.pathname === `/aboutus.html`) {
-
+        aboutEventListeners();
     }
 
 };
