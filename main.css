@@ -1,100 +1,157 @@
-
-.navbar {
-    background-color: black;
-    font: white;
+body {
+    background-image: url("https://img.freepik.com/free-photo/white-canvas-texture-background-close-up_64749-1526.jpg?size=626&ext=jpg");
 }
 
 #brand-image {
-    height: 140px;
-    width: 210px; 
+    height: 70px;
+    width: 80px; 
 }
 
 .navbar-nav {
-    font: white!important;
+    justify-content: flex-end;
+}
+
+.navbar-collapse {
     justify-content: flex-end;
 }
 
 
-.navbar-collapse {
-    justify-content: flex-end;
+/*////////////////////////////////*/
+/*////////////HOMEPAGE////////////*/
+/*////////////////////////////////*/
+
+#sitesDiv {
+    display: flex;
+    justify-content: center;
+    margin-left: 10rem;
+}
+
+#title-header, .title-center {
+    color: white;
 }
 
 #main {
     display: flex;
     justify-content: center;
     padding-bottom: 5em;
-    background-color: tan;
+    background-color: lightblue;
+    margin-top: 2rem;
 }
 
-/* img {
-    width: 40%;
-    height: 70%;
-} */
-
 .carousel {
-    width: 30%;
+    width: 70%;
     height: 30%;
 }
 
-.treslinks {
-    background-color: tan;
+.footerNavbar {
     display: flex;
-    flex-direction: row;
-    /* flex-wrap: wrap; */
-    height: 100%;
-    width: 100%;
     justify-content: center;
-    padding-left: 15rem;
+    align-content: flex-start;
+    margin-bottom: 2rem;
 }
-
 
 .page-footer {
     display: flex;
     justify-content: center;
     align-content: center;
-    margin: 2em;
-    min-height: auto;
 }
 
 .email {
-    padding: 2rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
 }
 
 .twitter {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .instagram {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .facebook {
-    padding: 2rem;
-}
-
-body {
-    /* background-color: lightblue; */
-    background-image:url('https://images.unsplash.com/photo-1518176258769-f227c798150e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+    padding: 1rem;
 }
 
 html {
     margin: 0;
 }
 
-#filterForm {
-    display: none;
+/*///////////////////////////////////////////////////////////*/
+/*////////////////////////BREWS CSS//////////////////////////*/
+/*///////////////////////////////////////////////////////////*/
+
+#brewPageWrapper {
+    text-align: center;
+    font-family: 'Anton', sans-serif;
 }
+
+#brewPageTitle {
+    margin-bottom: 1em;
+    font-size: 6em;
+}
+
+#filterFormRevealBtn {
+    margin: auto;
+    width: 10em;
+}
+
+#filterBtn, #unfilteredBtn {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+#filterForm {
+    background-image: url("https://img.freepik.com/free-photo/white-canvas-texture-background-close-up_64749-1526.jpg?size=626&ext=jpg");
+    margin-top: 1em;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    display: none;
+    padding-top: 1em;
+    filter: brightness(106%);
+}
+
+.abvRadioButtons, .typeCheckboxes {
+    text-align: start;
+}
+
+.abvFilterDiv, .typeFilterDiv {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#brewDiv {
+    margin-top: 2em;
+}
+
 .beerCard {
-    border: 1px solid black;
+    border: 3px solid #393939;
+    background-image: url(https://cdn2.vectorstock.com/i/1000x1000/03/11/red-background-red-metallic-texture-trendy-vector-19510311.jpg);
+    text-align: center;
+    margin-top: 1em;
+    color: black;
+    box-shadow: 3px 3px 5px grey;
 }
 
 .beerImage {
     width: 100%;
 }
 
-#title-header, .title-center {
-    color: white;
+.beerABV {
+    text-align: justify;
 }
+
+#brewEmptyMessage {
+    text-decoration: underline;
+    color: #D61729;
+    margin-top: 1em;
+    margin-bottom: 3em;
+    width: 80%;
+}
+
+/*////////////////////////////////////////*/
+/*/////////////////BREWMASTERS////////////*/
+/*////////////////////////////////////////*/
 
 .card-img-top {
     width: 100%;
@@ -110,3 +167,185 @@ html {
 .card {
     margin-bottom: 50px;
 }
+
+
+/*///////////////////////////////////////*/
+/*/////////// MEDIA QUERIES /////////////*/
+/*///////////////////////////////////////*/
+
+/* medium break on bootstrap */
+@media (min-width: 576px) {
+    /* Homepage */
+
+    /* Brews */
+    #filterForm {
+        border: 3px solid black;
+        width: 50%;
+        margin: auto;
+        box-shadow: 6px 6px 10px grey;
+    }
+    #brewPageTitle {
+        margin-bottom: .5em;
+    }
+
+    /* BrewMasters */
+
+    /* About */
+}
+/* large break on bootstrap */
+@media (min-width: 768px){
+    /* Homepage */
+
+    /* Brews */
+
+    /* BrewMasters */
+
+    /* About */
+}
+
+
+
+/* NAVBAR CUSTOM COLOR */
+.navbar {
+    background-color: #646464;
+  }
+  .navbar .navbar-brand {
+    color: #ffffff;
+  }
+  .navbar .navbar-brand:hover,
+  .navbar .navbar-brand:focus {
+    color: #ffffff;
+  }
+  .navbar .navbar-text {
+    color: #ffffff;
+  }
+  .navbar .navbar-text a {
+    color: #ffffff;
+  }
+  .navbar .navbar-text a:hover,
+  .navbar .navbar-text a:focus {
+    color: #ffffff; 
+  }
+  .navbar .navbar-nav .nav-link {
+    color: #ffffff;
+    border-radius: .25rem;
+    margin: 0 0.25em;
+  }
+  .navbar .navbar-nav .nav-link:not(.disabled):hover,
+  .navbar .navbar-nav .nav-link:not(.disabled):focus {
+    color: #ffffff;
+  }
+  .navbar .navbar-nav .dropdown-menu {
+    background-color: #646464;
+    border-color: #d61729;
+  }
+  .navbar .navbar-nav .dropdown-menu .dropdown-item {
+    color: #ffffff;
+  }
+  .navbar .navbar-nav .dropdown-menu .dropdown-item:hover,
+  .navbar .navbar-nav .dropdown-menu .dropdown-item:focus,
+  .navbar .navbar-nav .dropdown-menu .dropdown-item.active {
+    color: #ffffff;
+    background-color: #d61729;
+  }
+  .navbar .navbar-nav .dropdown-menu .dropdown-divider {
+    border-top-color: #d61729;
+  }
+  .navbar .navbar-nav .nav-item.active .nav-link,
+  .navbar .navbar-nav .nav-item.active .nav-link:hover,
+  .navbar .navbar-nav .nav-item.active .nav-link:focus,
+  .navbar .navbar-nav .nav-item.show .nav-link,
+  .navbar .navbar-nav .nav-item.show .nav-link:hover,
+  .navbar .navbar-nav .nav-item.show .nav-link:focus {
+    color: #ffffff;
+    background-color: #d61729;
+  }
+  .navbar .navbar-toggle {
+    border-color: #d61729;
+  }
+  .navbar .navbar-toggle:hover,
+  .navbar .navbar-toggle:focus {
+    background-color: #d61729;
+  }
+  .navbar .navbar-toggle .navbar-toggler-icon {
+    color: #ffffff;
+  }
+  .navbar .navbar-collapse,
+  .navbar .navbar-form {
+    border-color: #ffffff;
+  }
+  .navbar .navbar-link {
+    color: #ffffff;
+  }
+  .navbar .navbar-link:hover {
+    color: #ffffff;
+  }
+  
+  @media (max-width: 575px) {
+    .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+      color: #ffffff;
+    }
+    .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+    .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+      color: #ffffff;
+    }
+    .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
+      color: #ffffff;
+      background-color: #d61729;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+      color: #ffffff;
+    }
+    .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+    .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+      color: #ffffff;
+    }
+    .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+      color: #ffffff;
+      background-color: #d61729;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+      color: #ffffff;
+    }
+    .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+    .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+      color: #ffffff;
+    }
+    .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+      color: #ffffff;
+      background-color: #d61729;
+    }
+  }
+  
+  @media (max-width: 1199px) {
+    .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+      color: #ffffff;
+    }
+    .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+    .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+      color: #ffffff;
+    }
+    .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+      color: #ffffff;
+      background-color: #d61729;
+    }
+  }
+  
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #ffffff;
+  }
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffffff;
+  }
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffffff;
+    background-color: #d61729;
+  }
+  
