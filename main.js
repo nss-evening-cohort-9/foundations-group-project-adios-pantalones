@@ -128,6 +128,7 @@ const brews = [
         tastingNotes: ['Heavy', 'Malty', 'Caramely'],
     },
 ];
+
 const filterFormRevealBtn = document.getElementById("filterFormRevealBtn");
 const filterBeerBtn = document.getElementById("filterBtn");
 const filterForm = document.getElementById("filterForm");
@@ -135,6 +136,8 @@ const filterRadios = document.getElementsByName("abv");
 const unfilteredBtn = document.getElementById("unfilteredBtn");
 const brewDiv = document.getElementById("brewDiv");
 
+
+//this makes a smooth scroll down to the target div when button is clicked
 window.smoothScroll = function(target) {
     let scrollContainer = target;
     do { //find scroll container
@@ -158,8 +161,10 @@ window.smoothScroll = function(target) {
     scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
 };
 
+// This function take in three inputs, the array it loops through, the value of 
+// the type checkboxes and the value of the abv radio buttons
+
 const brewCardBuilder = (arrayOfBrews, checkboxValue, abvValue) => {
-    console.log(abvValue);
     let domString = '';
     arrayOfBrews.forEach((beer) => {
         // function in the for each that checks what "type" was returned 
@@ -205,7 +210,6 @@ const brewCardBuilder = (arrayOfBrews, checkboxValue, abvValue) => {
         } else if (abvValue === beer.status) {
             checkBoxChecker();
         }
-
     });
     // this checks after the for loop if the domstring is empty and then spits out a message
     if (domString === "") {
@@ -214,7 +218,7 @@ const brewCardBuilder = (arrayOfBrews, checkboxValue, abvValue) => {
     printToDom("brewDiv", domString);
 };
 
-
+// this function gets the value(s) from the checked boxes and returns that array
 const checkboxFilter = () => {
     let selectedItems = [];
     let itemsType = document.getElementsByName('beer');
@@ -225,11 +229,10 @@ const checkboxFilter = () => {
     return selectedItems;
 };
 
-
+//this function returns the value of the clicked abv radiobutton 
 const abvFilter = () => {
     for (let i = 0; i < filterRadios.length; i++) {
         if (filterRadios[i].checked) {
-            console.log("RadioValue", filterRadios[i].value)
             return filterRadios[i].value;
         }
     } return 'allAbv';
@@ -246,13 +249,11 @@ const unfilteredBeerFunction = () => {
     filterForm.style.display = 'none';
     filterFormRevealBtn.style.display = 'block';
     brewCardBuilder(brews, [], 'allAbv');
+};
 
-
-}
 const revealForm = () => {
     filterForm.style.display = 'block';
     filterFormRevealBtn.style.display = 'none';
-    smoothScroll(filterForm);
 };
 
 const printToDom = (divId, textToPrint) => {
