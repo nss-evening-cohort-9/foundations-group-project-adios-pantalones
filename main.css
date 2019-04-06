@@ -33,6 +33,7 @@ body {
 #main {
     display: flex;
     justify-content: center;
+    text-align: center;
     padding-bottom: 5em;
     background-image: url(https://cdn2.vectorstock.com/i/1000x1000/03/11/red-background-red-metallic-texture-trendy-vector-19510311.jpg);
     margin-top: 2rem;
@@ -47,7 +48,8 @@ body {
     display: flex;
     justify-content: center;
     align-content: flex-start;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem;
+    margin-left: 2rem; */
 }
 
 .page-footer {
@@ -58,7 +60,6 @@ body {
 
 .email {
     padding: 1rem;
-    margin-bottom: 2rem;
 }
 
 .twitter {
@@ -71,7 +72,7 @@ body {
 
 .facebook {
     padding: 1rem;
-}
+} 
 
 html {
     margin: 0;
