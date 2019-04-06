@@ -2,8 +2,7 @@
 let inputName = document.getElementById("name");
 let inputComment = document.getElementById("bodyText");
 const myButton = document.getElementById("commentButton");
-const commentAvatar = "https://previews.123rf.com/images/lineartestpilot/lineartestpilot1410/lineartestpilot141004547/32623035-cartoon-beer-bottle.jpg"
-
+const commentAvatar = "http://icons.iconarchive.com/icons/dapino/beach/128/beer-icon.png";
 const messageBuilder = () => {
      inputName = document.getElementById("name").value;
      inputComment = document.getElementById("bodyText").value;
@@ -11,21 +10,25 @@ const messageBuilder = () => {
     console.log(inputComment);
 
     let domString = '';
-    domString +=  `<div class="media">`;
-    domString += `<img class="mr-3" src="${commentAvatar}" alt="Generic placeholder image">`;
+    domString +=  `<div class="media comment">`;
+    domString += `<img class="mr-3 align-self-center" src="${commentAvatar}" alt="Generic placeholder image">`;
     domString +=  `<div class="media-body">`;
     domString += `<h5 class="mt-0">${inputName}</h5>`;
-    domString +=  `<p>${inputComment}</p>`;
+    domString +=  `<p class="commentText">${inputComment}</p>`;
     domString += `</div>`;
-    printToDom("container", domString); 
+    domString += `</div>`;
+    printToAboutDom("container", domString); 
     document.getElementById("name").value = "";
     document.getElementById("bodyText").value = "";
 };
 
+const printToAboutDom = (divId, textToPrint) => {
+    let selectedDiv = document.getElementById(divId);
+    selectedDiv.innerHTML += textToPrint;
+};
 
 const aboutEventListeners = () => {
     myButton.addEventListener('click', messageBuilder);
-
 };
 
 
@@ -350,7 +353,7 @@ const init = () => {
         brewMasterCards(wrestlers);
     } else if (window.location.pathname === `/index.html`) {
         siteBuilder(pages);
-    } else if (window.location.pathname === `/aboutus.html`) {
+    } else if (window.location.pathname === `/about.html`) {
         aboutEventListeners();
     }
 
