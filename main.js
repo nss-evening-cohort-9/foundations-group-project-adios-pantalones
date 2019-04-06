@@ -351,6 +351,7 @@ const init = () => {
     } else if (window.location.pathname === `/index.html`) {
         siteBuilder(pages);
     } else if (window.location.pathname === `/about.html`) {
+
         aboutEventListeners();
     }
 
