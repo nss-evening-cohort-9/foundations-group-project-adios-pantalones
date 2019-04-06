@@ -74,6 +74,18 @@ body {
     padding: 1rem;
 } 
 
+.address {
+    align-self: flex-start;
+    padding-right: 2em;
+    color: white;
+}
+
+.phone {
+    align-self: flex-start;
+    color: white!important;
+}
+
+
 html {
     margin: 0;
 }
