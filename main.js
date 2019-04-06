@@ -323,7 +323,7 @@ const pages = [
     {
         title: 'About Us',
         imgURL: './assets/beerlink3.jpg',
-        description: 'To hear the story of <br>Adios Los Pantalones',
+        description: 'To hear the story of Adios Los Pantalones',
         linkURL: './about.html'
     }
 ]
@@ -331,11 +331,13 @@ const pages = [
 const siteBuilder = (pages) => {
     let domString = '';
     pages.forEach((page) => {
-        domString += `<div class="site col-4">`;
+        domString += `<div class="col-12 col-md-6 col-lg-4">`;
+        domString += `<div class="site card">`;
         domString +=    `<h1 class="siteName">${page.title}</h1>`;
         domString +=    `<div class="siteDescription">`;
         domString +=        `<a class="nav-link" href=${page.linkURL}><img class="pageImage" src=${page.imgURL}></a>`;
         domString +=        `<p class="pageDescription">${page.description}</p>`;
+        domString +=    `</div>`;
         domString +=    `</div>`;
         domString += `</div>`; 
     });
@@ -350,7 +352,8 @@ const init = () => {
         brewMasterCards(wrestlers);
     } else if (window.location.pathname === `/index.html`) {
         siteBuilder(pages);
-    } else if (window.location.pathname === `/aboutus.html`) {
+    } else if (window.location.pathname === `/about.html`) {
+
         aboutEventListeners();
     }
 
