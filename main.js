@@ -1,34 +1,68 @@
-// console.log("Suh dude");
+
 let inputName = document.getElementById("name");
 let inputComment = document.getElementById("bodyText");
 const myButton = document.getElementById("commentButton");
 const commentAvatar = "http://icons.iconarchive.com/icons/dapino/beach/128/beer-icon.png";
-const messageBuilder = () => {
-     inputName = document.getElementById("name").value;
-     inputComment = document.getElementById("bodyText").value;
-    console.log(inputName);
-    console.log(inputComment);
+let commentNum = 1;
+const commentCollection = [];
 
+const messageBuilder = (commentArray) => {
     let domString = '';
-    domString +=  `<div class="media comment">`;
-    domString += `<img class="mr-3 align-self-center" src="${commentAvatar}" alt="Generic placeholder image">`;
-    domString +=  `<div class="media-body">`;
-    domString += `<h5 class="mt-0">${inputName}</h5>`;
-    domString +=  `<p class="commentText">${inputComment}</p>`;
-    domString += `</div>`;
-    domString += `</div>`;
-    printToAboutDom("container", domString); 
-    document.getElementById("name").value = "";
-    document.getElementById("bodyText").value = "";
+    commentArray.forEach((comment) => {
+        domString +=  `<div class="media comment">`;
+        domString +=  `<img class="mr-3 align-self-center" src="${comment.avatar}" alt="Generic placeholder image">`;
+        domString +=  `<div class="media-body">`;
+        domString += `<h5 class="mt-0">${comment.name}</h5>`;
+        domString +=  `<p class="commentText">${comment.comment}</p>`;
+        domString += `</div>`;
+        domString += `<button id="${comment.id}" class="btn btn-danger deleteButton">Delete</button>`;
+        domString += `</div>`;
+    });
+    printToDom("container", domString); 
+    addDeleteEvents();
 };
 
-const printToAboutDom = (divId, textToPrint) => {
-    let selectedDiv = document.getElementById(divId);
-    selectedDiv.innerHTML += textToPrint;
+const addComment =(e) => {
+    e.preventDefault();
+    const commentName = inputName.value;
+    const commentContent = inputComment.value;
+    const newComment = {
+        name: commentName,
+        comment: commentContent,
+        avatar: `${commentAvatar}`,
+        id: `commentNum${commentNum}`,
+    };
+    commentCollection.push(newComment);
+    commentNum++; 
+    messageBuilder(commentCollection);   
+    inputName.value = "";
+    inputComment.value = "";
+    console.log("array", commentCollection);
 };
+
+const deleteComment = (e) => {
+    const buttonId = e.target.id 
+    console.log("buttonID", buttonId);
+    commentCollection.forEach((comment, index) => {
+        if(comment.id === buttonId){
+            commentCollection.splice(index, 1);
+        }
+    })
+    messageBuilder(commentCollection);
+    addDeleteEvents();
+};
+
+const addDeleteEvents = () => {
+    const deleteButtons = document.getElementsByClassName('deleteButton');
+    console.log("works" ,deleteButtons);
+    for(let i=0; i<deleteButtons.length; i++){
+        deleteButtons[i].addEventListener('click', deleteComment);
+    }
+};
+
 
 const aboutEventListeners = () => {
-    myButton.addEventListener('click', messageBuilder);
+    myButton.addEventListener('click', addComment);
 };
 
 
