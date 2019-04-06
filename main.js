@@ -123,7 +123,7 @@ const brewMasterCards = (brews) => {
     domString += `<div class="card-deck">`
     brews.forEach((drinker) => {
         domString += `<div class="col-md-4 d-flex pb-3">`
-        domString += `<div class="card" class="buzzers">`
+        domString += `<div class="card buzzers">`
         domString += `<img src="${drinker.imgUrl}" class="card-img-top" alt="img">`
         domString += `<div class="card-body">`
         domString += `<h5 class="card-title">${drinker.name}</h5>`

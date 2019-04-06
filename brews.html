@@ -11,77 +11,78 @@
     <title>Brews</title>
 </head>
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="./index.html"><img src="./assets/apb-resize.jpg" alt="" id="brand-image"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="./index.html">Home </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="./brews.html">Beers <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./brewmasters.html">Brewsmasters</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./about.html">About Us</a>
-            </li>
-            </ul>
-        </div>
-    </nav>
-    <div id="brewPageWrapper">
-        <h1 id="brewPageTitle">CHECK OUT OUR BREWS</h1>
-        <button type="button" id="filterFormRevealBtn" class="btn btn-primary">Filter the brews!</button>
-        <div id="filterForm">
-            <div class="container">
-                <h1>Filter by beer type:</h1>
-                <div class="row typeFilterDiv">
-                    <div class="typeCheckboxes col-4 offset-4 col-lg-3 offset-lg-3">
-                        <input id="ale" type="checkbox" name="beer" value="Ale">
-                        <label for="ale">Ales</label>
-                    </div>
-                    <div class="typeCheckboxes col-4 offset-4 col-lg-3 offset-lg-1">
-                        <input id="lager" type="checkbox" name="beer" value="Lager">
-                        <label for="lager">Lager</label>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <h1>Filter by ABV:</h1>
-                <div class="row abvFilterDiv">
-                    <div class="abvRadioButtons col-5 col-lg-3 offset-1 offset-lg-3">
-                        <input id="allAbv" type="radio" name="abv" value="allAbv" checked>
-                        <label for="allAbv">All</label>
-                    </div>
-                    <div class="abvRadioButtons col-5 col-lg-3 offset-lg-1">
-                        <input id="lightweightAbv"type="radio" name="abv" value="light">
-                        <label for="lightweightAbv">Lightweight</label>
-                    </div>
-                    <div class="abvRadioButtons col-5 col-lg-3 offset-1 offset-lg-3">
-                        <input id="cruiserweightAbv" type="radio" name="abv" value="cruiser">
-                        <label for="cruiserweightAbv">Cruiserweight</label>
-                    </div>
-                    <div class="abvRadioButtons col-5 col-lg-3 offset-lg-1">
-                        <input id="heavyweightAbb" type="radio" name="abv" value="heavy">
-                        <label for="heavyweightAbv">Heavyweight</label>
-                    </div>
-                </div>
-            </div>
-            <button type="button" id="filterBtn" class="btn btn-primary">Let's get ready to filter!</button>
-            <button type="button" id="unfilteredBtn" class="btn btn-danger">I prefer my beer unfiltered!</button>
-        </div>
-    
-        <div class="container">
-            <div id="brewDiv" class="row justify-content-around"></div>
-        </div>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" id="largeNavTitle" href="./index.html"><h2>Adios Los Pantalones Brewery</h2></a>
+    <a class="navbar-brand" id="smallNavTitle" href="./index.html"><h2>APB</h2></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="./index.html">Home </a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="./brews.html">Beers <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./brewmasters.html">Brewmasters</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./about.html">About Us</a>
+        </li>
+        </ul>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="./main.js"></script>
+</nav>
+<div id="brewPageWrapper">
+    <h1 id="pageTitle">CHECK OUT OUR BREWS</h1>
+    <button type="button" id="filterFormRevealBtn" class="btn btn-primary">Filter the brews!</button>
+    <div id="filterForm">
+        <div class="container">
+            <h1>Filter by beer type:</h1>
+            <div class="row typeFilterDiv">
+                <div class="typeCheckboxes col-4 offset-4 col-lg-3 offset-lg-3">
+                    <input id="ale" type="checkbox" name="beer" value="Ale">
+                    <label for="ale">Ales</label>
+                </div>
+                <div class="typeCheckboxes col-4 offset-4 col-lg-3 offset-lg-1">
+                    <input id="lager" type="checkbox" name="beer" value="Lager">
+                    <label for="lager">Lager</label>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Filter by ABV:</h1>
+            <div class="row abvFilterDiv">
+                <div class="abvRadioButtons col-5 col-lg-3 offset-1 offset-lg-3">
+                    <input id="allAbv" type="radio" name="abv" value="allAbv" checked>
+                    <label for="allAbv">All</label>
+                </div>
+                <div class="abvRadioButtons col-5 col-lg-3 offset-lg-1">
+                    <input id="lightweightAbv"type="radio" name="abv" value="light">
+                    <label for="lightweightAbv">Lightweight</label>
+                </div>
+                <div class="abvRadioButtons col-5 col-lg-3 offset-1 offset-lg-3">
+                    <input id="cruiserweightAbv" type="radio" name="abv" value="cruiser">
+                    <label for="cruiserweightAbv">Cruiserweight</label>
+                </div>
+                <div class="abvRadioButtons col-5 col-lg-3 offset-lg-1">
+                    <input id="heavyweightAbb" type="radio" name="abv" value="heavy">
+                    <label for="heavyweightAbv">Heavyweight</label>
+                </div>
+            </div>
+        </div>
+        <button type="button" id="filterBtn" class="btn btn-primary">Let's get ready to filter!</button>
+        <button type="button" id="unfilteredBtn" class="btn btn-danger">I prefer my beer unfiltered!</button>
+    </div>
+
+    <div class="container">
+        <div id="brewDiv" class="row justify-content-around"></div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="./main.js"></script>
 </body>
 </html>

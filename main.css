@@ -1,18 +1,35 @@
 body {
-    background-image: url("https://img.freepik.com/free-photo/white-canvas-texture-background-close-up_64749-1526.jpg?size=626&ext=jpg");
+  background-image: url(https://img.freepik.com/free-photo/white-canvas-texture-background-close-up_64749-1526.jpg?size=626&ext=jpg);
+  font-family: 'Anton', sans-serif;
 }
 
+#pageTitle {
+  margin-bottom: 1em;
+  font-size: 6em;
+}
+
+.centerText {
+  text-align: center;
+}
 #brand-image {
-    height: 170px;
-    width: 180px; 
+  height: 170px;
+  width: 180px; 
 }
 
 .navbar-nav {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .navbar-collapse {
-    justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+#largeNavTitle {
+  display:none;
+}
+
+#smallNavTitle {
+  display:block;
 }
 
 
@@ -20,89 +37,96 @@ body {
 /*////////////HOMEPAGE////////////*/
 /*////////////////////////////////*/
 
+#sitesDiv {
+  display: flex;
+  justify-content: center;
+  margin-left: 10rem;
+}
+
 #main {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding-bottom: 5em;
-    background-image: url(https://cdn2.vectorstock.com/i/1000x1000/03/11/red-background-red-metallic-texture-trendy-vector-19510311.jpg);
-    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 5em;
+  background-image: url(https://img.freepik.com/free-photo/white-canvas-texture-background-close-up_64749-1526.jpg?size=626&ext=jpg);
+  margin-top: 2rem;
 }
 
 .carousel {
-    width: 60%;
-    height: 15%;
+  width: 60%;
+  height: 15%;
 }
 
 #sitesDiv {
-    width: 95%;
-    margin: auto;
+  width: 95%;
+  margin: auto;
 }
 .site {
-    border: 3px solid #393939;
-    background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
-    text-align: center;
-    margin-top: 1em;
-    color: black;
-    box-shadow: 3px 3px 5px grey;
-    
+  border: 3px solid #393939;
+  background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
+  text-align: center;
+  margin-top: 1em;
+  color: black;
+  box-shadow: 3px 3px 5px grey;
+  
 }
 
 .footerNavbar {
-    display: flex;
-    justify-content: center;
-    align-content: flex-start;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
 }
 
 .page-footer {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    background-color: #393939
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #393939
 }
 
 .pageImage {
-    display: block;
-    margin:auto;
-    width:100%;
-    
+  display: block;
+  margin:auto;
+  width:100%;
+  
 }
+
 #brand-image {
-    display:block;
-    margin: auto;
+  display:block;
+  margin: auto;
 }
 
 .email {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .twitter {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .instagram {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .facebook {
-    padding: 1rem;
+  padding: 1rem;
 
 } 
 
 .address {
-    align-self: flex-start;
-    padding-right: 2em;
-    color: white;
+  align-self: flex-start;
+  padding-right: 2em;
+  color: white;
 }
 
 .phone {
-    align-self: flex-start;
-    color: white!important;
+  align-self: flex-start;
+  color: white!important;
 }
 
 
 html {
-    margin: 0;
+  margin: 0;
 }
 
 /*///////////////////////////////////////////////////////////*/
@@ -110,58 +134,67 @@ html {
 /*///////////////////////////////////////////////////////////*/
 
 .mr-3 {
-    width: 64px;
-    height: 64px;
-    margin-left: 1em;
-    border: 1px solid black;
-
+  width: 64px;
+  height: 64px;
+  margin-left: 1em;
+  border: 1px solid black;
 }
+
 .commentText {
   padding-left: 2em;
 }
+
+.aboutContent {
+  line-height: 2em;
+}
+
+#aboutPageContent {
+  padding: 1em;
+  text-align: justify;
+}
+
 #nun-img {
-    float:left;
+  float:left;
 }
 
 #donkey-img {
-    float:right;
+  float:right;
 }
 
 .about-img {
-    width: 30%;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-bottom: 5px;
-    border: solid black 1px;
-    padding: 2px;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 1em;
+  border: solid black 1px;
+  padding: 2px;
 }
 
 #form1 {
-    padding: 10px;
-    border: 1px solid #000;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  padding: 10px;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
    
 .media {
-    border: 1px solid grey;
-    min-height: 7em;
-    width: 100%;
-    margin: auto;
-    margin-top: 1em;
-    background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
+  border: 1px solid grey;
+  min-height: 7em;
+  width: 100%;
+  margin: auto;
+  margin-top: 1em;
+  background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
 }
 
 .form input[type="text"],.form textarea {
-    border:1px solid #000;
-    padding:2px;
-    width:300px;
-    background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
+  border:1px solid #000;
+  padding:2px;
+  width:300px;
+  background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
 }
 
 
@@ -170,91 +203,104 @@ html {
 /*///////////////////////////////////////////////////////////*/
 
 #brewPageWrapper {
-    text-align: center;
-    font-family: 'Anton', sans-serif;
+  text-align: center;
 }
 
 #brewPageTitle {
-    margin-bottom: 1em;
-    font-size: 6em;
+  margin-bottom: 1em;
+  font-size: 6em;
 }
 
 #filterFormRevealBtn {
-    margin: auto;
-    width: 10em;
+  margin: auto;
+  width: 10em;
 }
 
 #filterBtn, #unfilteredBtn {
-    margin-bottom: 1em;
-    margin-top: 1em;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 #filterForm {
-    background-image: url("https://img.freepik.com/free-photo/white-canvas-texture-background-close-up_64749-1526.jpg?size=626&ext=jpg");
-    margin-top: 1em;
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
-    display: none;
-    padding-top: 1em;
-    filter: brightness(106%);
+  background-image: url("https://img.freepik.com/free-photo/white-canvas-texture-background-close-up_64749-1526.jpg?size=626&ext=jpg");
+  margin-top: 1em;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  display: none;
+  padding-top: 1em;
+  filter: brightness(106%);
 }
 
 .abvRadioButtons, .typeCheckboxes {
-    text-align: start;
+  text-align: start;
 }
 
 .abvFilterDiv, .typeFilterDiv {
-    margin-top: 1em;
-    margin-bottom: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 #brewDiv {
-    margin-top: 2em;
+  margin-top: 2em;
 }
 
 .beerCard {
-    border: 3px solid #393939;
-    background-image: url(https://cdn2.vectorstock.com/i/1000x1000/03/11/red-background-red-metallic-texture-trendy-vector-19510311.jpg);
-    text-align: center;
-    margin-top: 1em;
-    color: black;
-    box-shadow: 3px 3px 5px grey;
+  border: 3px solid #393939;
+  background-image: url(https://cdn2.vectorstock.com/i/1000x1000/03/11/red-background-red-metallic-texture-trendy-vector-19510311.jpg);
+  text-align: center;
+  margin-top: 1em;
+  color: black;
+  box-shadow: 3px 3px 5px grey;
 }
 
 .beerImage {
-    width: 100%;
+  width: 100%;
 }
 
 
 .beerABV {
-    text-align: justify;
+  text-align: justify;
 }
 
 #brewEmptyMessage {
-    text-decoration: underline;
-    color: #D61729;
-    margin-top: 1em;
-    margin-bottom: 3em;
-    width: 80%;
+  text-decoration: underline;
+  color: #D61729;
+  margin-top: 1em;
+  margin-bottom: 3em;
+  width: 80%;
 }
 
 /*////////////////////////////////////////*/
 /*/////////////////BREWMASTERS////////////*/
 /*////////////////////////////////////////*/
+.brewMasterLarge {
+  display: none;
+}
 
+.brewMasterSmall {
+  display: block;
+}
+
+#brewmasterTagline {
+  font-size: 2em;
+}
 .card-img-top {
-    width: 100%;
-    height: 35vw;
-    object-fit: cover;
+  width: 100%;
+  /* height: 35vw; */
+  object-fit: cover;
 }
 
 .card-footer {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
-.card {
-    margin-bottom: 50px;
+.buzzers {
+  margin-bottom: 50px;
+  border: 3px solid #393939;
+  background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
+  color: black;
+  box-shadow: 3px 3px 5px grey;
 }
 
 
@@ -264,48 +310,63 @@ html {
 
 /* medium break on bootstrap */
 @media (min-width: 576px) {
-    /* Homepage */
+  /* GLOBAL */
+  #largeNavTitle {
+    display: block;
+  }
+  
+  #smallNavTitle {
+    display: none;
+  }
+  /* Homepage */
 
-    /* Brews */
-    #filterForm {
-        border: 3px solid black;
-        width: 50%;
-        margin: auto;
-        box-shadow: 6px 6px 10px grey;
-    }
-    #brewPageTitle {
-        margin-bottom: .5em;
-    }
+  /* Brews */
+  #filterForm {
+    border: 3px solid black;
+    width: 50%;
+    margin: auto;
+    box-shadow: 6px 6px 10px grey;
+  }
+  #brewPageTitle {
+    margin-bottom: .5em;
+  }
 
-    /* BrewMasters */
+  /* BrewMasters */
+  .brewMasterLarge {
+    display: block;
+  }
+  
+  .brewMasterSmall {
+    display: none;
+  }
+  
+  /* About */
+  .media {
+    width: 50%;
+  }
 
-    /* About */
-    .media {
-      width: 50%;
-    }
+  .about-img {
+    width: 50%;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    padding: 2px;
+  }
 }
 /* large break on bootstrap */
 @media (min-width: 768px){
-    /* Homepage */
+  /* Homepage */
 
-    /* Brews */
+  /* Brews */
 
-    /* BrewMasters */
+  /* BrewMasters */
 
-    /* About */
+  /* About */
+  .about-img {
+    width: 30%;
+  }
 }
-
-.address {
-    align-self: flex-start;
-    padding-right: 2em;
-    color: white;
-}
-
-.phone {
-    align-self: flex-start;
-    color: white!important;
-}
-
 
 
 /* NAVBAR CUSTOM COLOR */
