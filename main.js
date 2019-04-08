@@ -25,7 +25,11 @@ const messageBuilder = (commentArray) => {
 
 const addComment =(e) => {
     e.preventDefault();
-    const commentName = inputName.value;
+    let commentName = inputName.value;
+    console.log(commentName);
+    if(commentName === ''){
+        commentName = 'Anonymous';
+    };
     const commentContent = inputComment.value;
     const newComment = {
         name: commentName,
