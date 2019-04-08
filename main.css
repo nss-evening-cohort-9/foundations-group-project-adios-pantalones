@@ -11,6 +11,7 @@ body {
 .centerText {
   text-align: center;
 }
+
 #brand-image {
   height: 170px;
   width: 180px; 
@@ -30,6 +31,9 @@ body {
 
 #smallNavTitle {
   display:block;
+  margin: auto;
+  padding-left: 4em;
+  letter-spacing: .1em;
 }
 
 
@@ -37,6 +41,16 @@ body {
 /*////////////HOMEPAGE////////////*/
 /*////////////////////////////////*/
 
+.modal-content {
+  border: 5px solid black;
+  border-radius: 4.5%;
+  background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
+}
+
+.modal-header {
+  background-color: #393939;
+  color: white;
+}
 #sitesDiv {
   display: flex;
   justify-content: center;
