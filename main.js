@@ -9,17 +9,30 @@ const commentCollection = [];
 const messageBuilder = (commentArray) => {
     let domString = '';
     commentArray.forEach((comment) => {
-        domString +=  `<div class="media comment ${comment.id}">`;
-        domString +=  `<img class="mr-3 align-self-center" src="${comment.avatar}" alt="Generic placeholder image">`;
-        domString +=  `<div class="media-body">`;
-        domString += `<h5 class="mt-0">${comment.name}</h5>`;
-        domString +=  `<p class="commentText">${comment.comment}</p>`;
+        domString += `<div>`
+        domString += `<div class="media comment">`;
+        domString +=    `<img class="mr-3 align-self-center" src="${comment.avatar}" alt="Generic placeholder image">`;
+        domString +=    `<div class="media-body">`;
+        domString +=        `<h5 class="commentName mt-0">${comment.name}</h5>`;
+        domString +=        `<p class="commentText">${comment.comment}</p>`;
+        domString +=        `<div class="commentNesting">`;
+        domString +=        `</div>`;
+        domString +=    `</div>`;
+        domString +=    `<div id="${comment.id}" >`;
+        domString +=        `<button class="btn btn-success editButton commentButtons">Edit</button>`;
+        domString +=        `<button class="btn btn-danger deleteButton commentButtons">Delete</button>`;
+        domString +=    `</div>`;
         domString += `</div>`;
-        domString += `<button id="${comment.id}" class="btn btn-danger deleteButton">Delete</button>`;
+        domString += `<div id="${comment.id}EditForm" class="${comment.hideOrShowEdit}CommentForm">`;
+        domString +=    `<input type="text" class="form-control newNameForm" value="${comment.name}"/>`;
+        domString +=    `<textarea rows="5" col="30" class="newBodyText">${comment.comment}</textarea>`;
+        domString +=    `<button id="${comment.id}" class="btn btn-primary mb-2 editCompleteButton">Edit this comment</button>`;
+        domString += `</div>`;
         domString += `</div>`;
     });
     printToDom("commentContainer", domString);  
     addDeleteEvents();
+    addEditEvents();
 };
 
 const addComment =(e) => {
@@ -34,6 +47,8 @@ const addComment =(e) => {
         comment: commentContent,
         avatar: `${commentAvatar}`,
         id: `commentNum${commentNum}`,
+        hideOrShowEdit: "hidden",
+        hideOrShowComment: "hidden",
     };
     commentCollection.push(newComment);
     commentNum++; 
@@ -43,8 +58,25 @@ const addComment =(e) => {
     smoothScroll(commentContainer);
 };
 
+const editComment = (e) => {
+    const buttonId = e.target.parentElement.id 
+    commentCollection.forEach((comment, index) => {
+        if(comment.id === buttonId){
+            comment.hideOrShowEdit = "shown";
+        }
+        else {
+            comment.hideOrShowEdit = "hidden";
+        }
+    })
+    messageBuilder(commentCollection);
+    addDeleteEvents();
+    addEditEvents();
+    addFinalEditEvents();
+    
+};
+
 const deleteComment = (e) => {
-    const buttonId = e.target.id 
+    const buttonId = e.target.parentElement.id 
     commentCollection.forEach((comment, index) => {
         if(comment.id === buttonId){
             commentCollection.splice(index, 1);
@@ -52,12 +84,44 @@ const deleteComment = (e) => {
     })
     messageBuilder(commentCollection);
     addDeleteEvents();
+    addEditEvents();
 };
+
+const commentEditComplete = (e) => {
+    const buttonId = e.target.id 
+    console.log("new Name",e.target.previousElementSibling.previousElementSibling)
+    commentCollection.forEach((comment, index) => {
+        if(comment.id === buttonId){
+            const newNameForm = e.target.previousElementSibling.previousElementSibling;
+            const newBodyTextForm = e.target.previousElementSibling;
+            comment.name = newNameForm.value;
+            comment.comment = newBodyTextForm.value;
+            comment.hideOrShowEdit = "hidden";
+        }
+    })
+    messageBuilder(commentCollection);
+    addDeleteEvents();
+    addEditEvents();
+}
 
 const addDeleteEvents = () => {
     const deleteButtons = document.getElementsByClassName('deleteButton');
     for(let i=0; i<deleteButtons.length; i++){
         deleteButtons[i].addEventListener('click', deleteComment);
+    }
+};
+
+const addEditEvents = () => {
+    const editButtons = document.getElementsByClassName('editButton');
+    for(let i=0; i<editButtons.length; i++){
+        editButtons[i].addEventListener('click', editComment);
+    }
+};
+
+const addFinalEditEvents = () => {
+    const finalEditButtons = document.getElementsByClassName("editCompleteButton");
+    for(let i=0; i<finalEditButtons.length; i++){
+        finalEditButtons[i].addEventListener('click', commentEditComplete);
     }
 };
 

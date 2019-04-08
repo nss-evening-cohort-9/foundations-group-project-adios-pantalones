@@ -283,7 +283,21 @@ html {
   flex-direction: column;
   align-items: center;
 }
-    
+
+.hiddenCommentForm {
+  max-height: 0px;
+}
+
+.shownCommentForm {
+  padding: 2em;
+  border: 1px solid black;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .media {
   border: 1px solid grey;
   min-height: 7em;
@@ -300,6 +314,29 @@ html {
   background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
 }
 
+.hiddenCommentForm input[type="text"],.hiddenCommentForm textarea {
+  display: none;
+  border:1px solid black;
+  width: 80%;
+  margin-bottom: 1em;
+  background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
+}
+
+.hiddenCommentForm .editCompleteButton {
+  display: none;
+}
+
+.shownCommentForm input[type="text"],.shownCommentForm textarea {
+  display: block;
+  border:1px solid black;
+  width: 80%;
+  margin-bottom: 1em;
+  background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
+}
+
+.shownCommentForm .editCompleteButton {
+  display: block;
+}
 
 /*///////////////////////////////////////////////////////////*/
 /*////////////////////////BREWS CSS//////////////////////////*/
@@ -444,7 +481,12 @@ html {
   
   /* About */
   .media {
-    width: 50%;
+    width: 75%;
+  }
+
+  .shownCommentForm {
+    width: 75%;
+    margin: auto;
   }
 
   .about-img {
@@ -467,6 +509,13 @@ html {
   /* About */
   .about-img {
     width: 30%;
+  }
+  .media {
+    width: 60%;
+  }
+
+  .shownCommentForm {
+    width: 60%;
   }
 }
 
