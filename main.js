@@ -33,7 +33,6 @@ const messageBuilder = (commentArray) => {
     printToDom("commentContainer", domString);  
     addDeleteEvents();
     addEditEvents();
-    console.log("array", document.getElementById("container"))
 };
 
 const addComment =(e) => {
@@ -77,7 +76,7 @@ const editComment = (e) => {
 };
 
 const deleteComment = (e) => {
-    const buttonId = e.target.id 
+    const buttonId = e.target.parentElement.id 
     commentCollection.forEach((comment, index) => {
         if(comment.id === buttonId){
             commentCollection.splice(index, 1);
