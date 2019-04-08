@@ -1,7 +1,90 @@
 body {
-    background-image: url(https://img.freepik.com/free-photo/white-canvas-texture-background-close-up_64749-1526.jpg?size=626&ext=jpg);
-    font-family: 'Anton', sans-serif;
-  }
+  background-image: url(https://img.freepik.com/free-photo/white-canvas-texture-background-close-up_64749-1526.jpg?size=626&ext=jpg);
+  font-family: 'Anton', sans-serif;
+}
+
+#pageTitle {
+  margin-bottom: 1em;
+  font-size: 6em;
+}
+
+.centerText {
+  text-align: center;
+}
+
+#brand-image {
+  height: 170px;
+  width: 180px; 
+}
+
+.navbar-nav {
+  justify-content: flex-end;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+#largeNavTitle {
+  display:none;
+}
+
+#smallNavTitle {
+  display:block;
+  margin: auto;
+  padding-left: 4em;
+  letter-spacing: .1em;
+}
+
+
+/*////////////////////////////////*/
+/*////////////HOMEPAGE////////////*/
+/*////////////////////////////////*/
+
+.modal-content {
+  border: 5px solid black;
+  border-radius: 4.5%;
+  background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
+}
+
+.modal-header {
+  background-color: #393939;
+  color: white;
+}
+
+#sitesDiv {
+  display: flex;
+  justify-content: center;
+  margin-left: 10rem;
+}
+
+#main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 5em;
+  background-image: url(https://img.freepik.com/free-photo/white-canvas-texture-background-close-up_64749-1526.jpg?size=626&ext=jpg);
+  margin-top: 2rem;
+}
+
+.carousel {
+  width: 60%;
+  height: 15%;
+}
+
+#sitesDiv {
+  width: 95%;
+  margin: auto;
+}
+
+.site {
+  border: 3px solid #393939;
+  background-image: url(http://www.vanboxmeerconstruction.com/wp-content/uploads/2013/06/Seamless-wall-white-paint-plaster-stucco-texture-02-copy.jpg);
+  text-align: center;
+  margin-top: 1em;
+  color: black;
+  box-shadow: 3px 3px 5px grey;
+
   
   #pageTitle {
     margin-bottom: 1em;

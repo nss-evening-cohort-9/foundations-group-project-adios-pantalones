@@ -9,7 +9,7 @@ const commentCollection = [];
 const messageBuilder = (commentArray) => {
     let domString = '';
     commentArray.forEach((comment) => {
-        domString +=  `<div class="media comment">`;
+        domString +=  `<div class="media comment ${comment.id}">`;
         domString +=  `<img class="mr-3 align-self-center" src="${comment.avatar}" alt="Generic placeholder image">`;
         domString +=  `<div class="media-body">`;
         domString += `<h5 class="mt-0">${comment.name}</h5>`;
@@ -18,7 +18,8 @@ const messageBuilder = (commentArray) => {
         domString += `<button id="${comment.id}" class="btn btn-danger deleteButton">Delete</button>`;
         domString += `</div>`;
     });
-    printToDom("container", domString); 
+    printToDom("commentContainer", domString); 
+    
     addDeleteEvents();
 };
 
@@ -37,6 +38,7 @@ const addComment =(e) => {
     messageBuilder(commentCollection);   
     inputName.value = "";
     inputComment.value = "";
+    smoothScroll(commentContainer);
     console.log("array", commentCollection);
 };
 
@@ -363,7 +365,12 @@ const pages = [
         description: 'To hear the story of Adios Los Pantalones',
         linkURL: './about.html'
     }
-]
+];
+const kidSites = ["https://www.cartoonnetwork.com/", "https://www.nick.com/", "https://www.pokemon.com/us/"]
+const modal = document.getElementById('myModal');
+const underAgeBtn = document.getElementById('under21');
+const underAge = true;
+
 
 const siteBuilder = (pages) => {
     let domString = '';
@@ -381,18 +388,62 @@ const siteBuilder = (pages) => {
     printToDom("sitesDiv", domString)
 };
 
+const getRandomNum = (max) => {
+    return Math.floor(Math.random() * Math.floor(max));
+};
+
+const ageChecker = () => {
+    sessionStorage.setItem('clicked', 'true');
+};
+const ageNoper = () => {
+    sessionStorage.removeItem('clicked');
+};
+
+const ageCheckModalBuilder = (kidSiteArray) => {
+    let domString = '';
+    let kidSite = kidSiteArray[getRandomNum(kidSiteArray.length)];
+  
+    domString += `<div id="myModal" class="modal" tabindex="-1" role="dialog">`
+    domString +=    `<div class="modal-dialog modal-lg" role="document">`
+    domString +=        `<div class="modal-content">`
+    domString +=            `<div class="modal-header">`
+    domString +=                `<h5 class="modal-title">Hold up now!</h5>`
+    domString +=            `</div>`
+    domString +=        `<div class="modal-body">`
+    domString +=            `<p>Are you reading to drink your pants away? Great!</p>`
+    domString +=            `<p> But first, are you over 21?</p>`
+    domString +=        `</div>`
+    domString +=        `<div class="modal-footer">`
+    domString +=            `<label for="over21">Yes, I am over 21:</label>`
+    domString +=            `<button type="button" id="over21" class="btn btn-success" data-dismiss="modal">Tag me in!</button>`
+    domString +=            `<label for="under21">No, take me somewere else:</label>`
+    domString +=            `<a href="${kidSite}" id="under21" class="btn btn-danger">Ring Out</a>`
+    domString +=        `</div>`
+    domString +=    `</div>`
+    domString += `</div>`
+    printToDom("modalDiv", domString)
+};
+
+
 const init = () => {
     if (window.location.pathname === `/brews.html`) {
+        console.log(underAge);
         brewCardBuilder(brews, [], 'allAbv');
         brewsEventListeners();
     } else if (window.location.pathname === `/brewmasters.html`) {
         brewMasterCards(wrestlers);
-    } else if (window.location.pathname === `/index.html`) {
-        siteBuilder(pages);
     } else if (window.location.pathname === `/about.html`) {
         aboutEventListeners();
+    } else {
+        siteBuilder(pages);
+        ageCheckModalBuilder(kidSites);
+        document.getElementById('over21').addEventListener('click', ageChecker);
+        document.getElementById('ageLiar').addEventListener('click', ageNoper);
+        console.log(sessionStorage.getItem('clicked'));
+        if(!sessionStorage.getItem('clicked') || sessionStorage.getItem('clicked') === null){
+            $('#myModal').modal({show: true, backdrop: 'static', keyboard: false});
+        }
     }
-
 };
 
 init();
