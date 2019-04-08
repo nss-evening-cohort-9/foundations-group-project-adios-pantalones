@@ -23,7 +23,7 @@ const messageBuilder = (commentArray) => {
         domString +=        `<button class="btn btn-danger deleteButton commentButtons">Delete</button>`;
         domString +=    `</div>`;
         domString += `</div>`;
-        domString += `<div class="${comment.hideOrShow}CommentForm">`;
+        domString += `<div id="${comment.id}EditForm" class="${comment.hideOrShow}CommentForm">`;
         domString +=    `<input type="text" class="form-control newNameForm" value="${comment.name}"/>`;
         domString +=    `<textarea rows="5" col="30" class="newBodyText">${comment.comment}</textarea>`;
         domString +=    `<button id="${comment.id}" class="btn btn-primary mb-2 editCompleteButton">Comment</button>`;
@@ -61,11 +61,15 @@ const editComment = (e) => {
         if(comment.id === buttonId){
             comment.hideOrShow = "shown";
         }
+        else {
+            comment.hideOrShow = "hidden";
+        }
     })
     messageBuilder(commentCollection);
-    addFinalEditEvents();
     addDeleteEvents();
     addEditEvents();
+    addFinalEditEvents();
+    
 };
 
 const deleteComment = (e) => {
@@ -82,18 +86,14 @@ const deleteComment = (e) => {
 
 const commentEditComplete = (e) => {
     const buttonId = e.target.id 
+    console.log("new Name",e.target.previousElementSibling.previousElementSibling)
     commentCollection.forEach((comment, index) => {
         if(comment.id === buttonId){
-            const newNameForm = document.getElementsByClassName('newNameForm');
-            const newBodyTextForm = document.getElementsByClassName('newBodyText');
-            console.log(newNameForm);
-            console.log(newBodyTextForm)
-            console.log("nameform value:", newNameForm[0].value);
-            console.log("newBodyText value:", newBodyTextForm[0].value)
-            comment.name = newNameForm[0].value;
-            comment.comment = newBodyTextForm[0].value;
+            const newNameForm = e.target.previousElementSibling.previousElementSibling;
+            const newBodyTextForm = e.target.previousElementSibling;
+            comment.name = newNameForm.value;
+            comment.comment = newBodyTextForm.value;
             comment.hideOrShow = "hidden";
-
         }
     })
     messageBuilder(commentCollection);

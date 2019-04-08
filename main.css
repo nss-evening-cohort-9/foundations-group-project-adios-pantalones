@@ -379,11 +379,11 @@ html {
   
   /* About */
   .media {
-    width: 50%;
+    width: 75%;
   }
 
   .shownCommentForm {
-    width: 50%;
+    width: 75%;
     margin: auto;
   }
 
@@ -407,6 +407,13 @@ html {
   /* About */
   .about-img {
     width: 30%;
+  }
+  .media {
+    width: 60%;
+  }
+
+  .shownCommentForm {
+    width: 60%;
   }
 }
 
