@@ -18,14 +18,16 @@ const messageBuilder = (commentArray) => {
         domString += `<button id="${comment.id}" class="btn btn-danger deleteButton">Delete</button>`;
         domString += `</div>`;
     });
-    printToDom("commentContainer", domString); 
-    
+    printToDom("commentContainer", domString);  
     addDeleteEvents();
 };
 
 const addComment =(e) => {
     e.preventDefault();
-    const commentName = inputName.value;
+    let commentName = inputName.value;
+    if(commentName === ''){
+        commentName = 'Anonymous Beer Lover';
+    };
     const commentContent = inputComment.value;
     const newComment = {
         name: commentName,
@@ -39,12 +41,10 @@ const addComment =(e) => {
     inputName.value = "";
     inputComment.value = "";
     smoothScroll(commentContainer);
-    console.log("array", commentCollection);
 };
 
 const deleteComment = (e) => {
     const buttonId = e.target.id 
-    console.log("buttonID", buttonId);
     commentCollection.forEach((comment, index) => {
         if(comment.id === buttonId){
             commentCollection.splice(index, 1);
@@ -56,12 +56,10 @@ const deleteComment = (e) => {
 
 const addDeleteEvents = () => {
     const deleteButtons = document.getElementsByClassName('deleteButton');
-    console.log("works" ,deleteButtons);
     for(let i=0; i<deleteButtons.length; i++){
         deleteButtons[i].addEventListener('click', deleteComment);
     }
 };
-
 
 const aboutEventListeners = () => {
     myButton.addEventListener('click', addComment);
@@ -137,7 +135,7 @@ const brewMasterCards = (brews) => {
         domString += `</div>`
     });
     printToDom('container', domString);
-}
+};
 
 /////////////////////////////////////
 //////////// BREWS PAGE /////////////
@@ -366,6 +364,7 @@ const pages = [
         linkURL: './about.html'
     }
 ];
+
 const kidSites = ["https://www.cartoonnetwork.com/", "https://www.nick.com/", "https://www.pokemon.com/us/"]
 const modal = document.getElementById('myModal');
 const underAgeBtn = document.getElementById('under21');
@@ -427,7 +426,6 @@ const ageCheckModalBuilder = (kidSiteArray) => {
 
 const init = () => {
     if (window.location.pathname === `/brews.html`) {
-        console.log(underAge);
         brewCardBuilder(brews, [], 'allAbv');
         brewsEventListeners();
     } else if (window.location.pathname === `/brewmasters.html`) {
@@ -439,7 +437,6 @@ const init = () => {
         ageCheckModalBuilder(kidSites);
         document.getElementById('over21').addEventListener('click', ageChecker);
         document.getElementById('ageLiar').addEventListener('click', ageNoper);
-        console.log(sessionStorage.getItem('clicked'));
         if(!sessionStorage.getItem('clicked') || sessionStorage.getItem('clicked') === null){
             $('#myModal').modal({show: true, backdrop: 'static', keyboard: false});
         }
