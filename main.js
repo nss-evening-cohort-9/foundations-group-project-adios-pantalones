@@ -9,17 +9,31 @@ const commentCollection = [];
 const messageBuilder = (commentArray) => {
     let domString = '';
     commentArray.forEach((comment) => {
-        domString +=  `<div class="media comment">`;
-        domString +=  `<img class="mr-3 align-self-center" src="${comment.avatar}" alt="Generic placeholder image">`;
-        domString +=  `<div class="media-body">`;
-        domString += `<h5 class="mt-0">${comment.name}</h5>`;
-        domString +=  `<p class="commentText">${comment.comment}</p>`;
+        domString += `<div>`
+        domString += `<div class="media comment">`;
+        domString +=    `<img class="mr-3 align-self-center" src="${comment.avatar}" alt="Generic placeholder image">`;
+        domString +=    `<div class="media-body">`;
+        domString +=        `<h5 class="commentName mt-0">${comment.name}</h5>`;
+        domString +=        `<p class="commentText">${comment.comment}</p>`;
+        domString +=        `<div class="commentNesting">`;
+        domString +=        `</div>`;
+        domString +=    `</div>`;
+        domString +=    `<div id="${comment.id}" >`;
+        domString +=        `<button class="btn btn-success editButton commentButtons">Edit</button>`;
+        domString +=        `<button class="btn btn-danger deleteButton commentButtons">Delete</button>`;
+        domString +=    `</div>`;
         domString += `</div>`;
-        domString += `<button id="${comment.id}" class="btn btn-danger deleteButton">Delete</button>`;
+        domString += `<div class="${comment.hideOrShow}CommentForm">`;
+        domString +=    `<input type="text" class="form-control" id="name" value="${comment.name}"/>`;
+        domString +=    `<textarea rows="5" col="30" id="bodyText">${comment.comment}</textarea>`;
+        domString +=    `<button class="btn btn-primary mb-2 editCompleteButton">Comment</button>`;
+        domString += `</div>`;
         domString += `</div>`;
     });
     printToDom("container", domString); 
     addDeleteEvents();
+    addEditEvents();
+    console.log("array", document.getElementById("container"))
 };
 
 const addComment =(e) => {
@@ -31,6 +45,7 @@ const addComment =(e) => {
         comment: commentContent,
         avatar: `${commentAvatar}`,
         id: `commentNum${commentNum}`,
+        hideOrShow: "hidden",
     };
     commentCollection.push(newComment);
     commentNum++; 
@@ -40,9 +55,26 @@ const addComment =(e) => {
     console.log("array", commentCollection);
 };
 
+const editComment = (e) => {
+    const buttonId = e.target.parentElement.id 
+    const commentFormDiv = e.target.parentElement.parentElement.parentElement.lastChild
+    console.log(e.target.parentElement.parentElement.parentElement.lastChild)
+    // const commentDiv = e.target.parentElement.parentElement.nextElementSibling
+    console.log("got here")
+    commentCollection.forEach((comment, index) => {
+        if(comment.id === buttonId){
+            comment.hideOrShow = "shown";
+
+            messageBuilder(commentCollection)
+            addDeleteEvents();
+            addEditEvents();
+            
+        }
+    })
+
+}
 const deleteComment = (e) => {
-    const buttonId = e.target.id 
-    console.log("buttonID", buttonId);
+    const buttonId = e.target.parentElement.id 
     commentCollection.forEach((comment, index) => {
         if(comment.id === buttonId){
             commentCollection.splice(index, 1);
@@ -50,16 +82,22 @@ const deleteComment = (e) => {
     })
     messageBuilder(commentCollection);
     addDeleteEvents();
+    addEditEvents();
 };
 
 const addDeleteEvents = () => {
     const deleteButtons = document.getElementsByClassName('deleteButton');
-    console.log("works" ,deleteButtons);
     for(let i=0; i<deleteButtons.length; i++){
         deleteButtons[i].addEventListener('click', deleteComment);
     }
 };
 
+const addEditEvents = () => {
+    const editButtons = document.getElementsByClassName('editButton');
+    for(let i=0; i<editButtons.length; i++){
+        editButtons[i].addEventListener('click', editComment);
+    }
+};
 
 const aboutEventListeners = () => {
     myButton.addEventListener('click', addComment);
