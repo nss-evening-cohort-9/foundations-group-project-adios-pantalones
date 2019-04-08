@@ -23,10 +23,10 @@ const messageBuilder = (commentArray) => {
         domString +=        `<button class="btn btn-danger deleteButton commentButtons">Delete</button>`;
         domString +=    `</div>`;
         domString += `</div>`;
-        domString += `<div id="${comment.id}EditForm" class="${comment.hideOrShow}CommentForm">`;
+        domString += `<div id="${comment.id}EditForm" class="${comment.hideOrShowEdit}CommentForm">`;
         domString +=    `<input type="text" class="form-control newNameForm" value="${comment.name}"/>`;
         domString +=    `<textarea rows="5" col="30" class="newBodyText">${comment.comment}</textarea>`;
-        domString +=    `<button id="${comment.id}" class="btn btn-primary mb-2 editCompleteButton">Comment</button>`;
+        domString +=    `<button id="${comment.id}" class="btn btn-primary mb-2 editCompleteButton">Edit this comment</button>`;
         domString += `</div>`;
         domString += `</div>`;
     });
@@ -45,7 +45,8 @@ const addComment =(e) => {
         comment: commentContent,
         avatar: `${commentAvatar}`,
         id: `commentNum${commentNum}`,
-        hideOrShow: "hidden",
+        hideOrShowEdit: "hidden",
+        hideOrShowComment: "hidden",
     };
     commentCollection.push(newComment);
     commentNum++; 
@@ -59,10 +60,10 @@ const editComment = (e) => {
     const buttonId = e.target.parentElement.id 
     commentCollection.forEach((comment, index) => {
         if(comment.id === buttonId){
-            comment.hideOrShow = "shown";
+            comment.hideOrShowEdit = "shown";
         }
         else {
-            comment.hideOrShow = "hidden";
+            comment.hideOrShowEdit = "hidden";
         }
     })
     messageBuilder(commentCollection);
@@ -93,7 +94,7 @@ const commentEditComplete = (e) => {
             const newBodyTextForm = e.target.previousElementSibling;
             comment.name = newNameForm.value;
             comment.comment = newBodyTextForm.value;
-            comment.hideOrShow = "hidden";
+            comment.hideOrShowEdit = "hidden";
         }
     })
     messageBuilder(commentCollection);
